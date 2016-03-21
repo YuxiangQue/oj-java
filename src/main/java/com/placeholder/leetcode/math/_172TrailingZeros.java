@@ -16,15 +16,13 @@ public class _172TrailingZeros {
     }
 
     /**
+     * http://blog.csdn.net/yahohi/article/details/7528803
      * Given an integer n, return the number of trailing zeroes in n!.
      * Note: Your solution should be in logarithmic time complexity.
      *
      * @param n
      * @return
      */
-
-
-    // http://blog.csdn.net/yahohi/article/details/7528803
     public void trailingZeroes(int n, int[] numZeros) {
         if (0 <= n && n < 5) {
             numZeros[0] += 0;

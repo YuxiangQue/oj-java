@@ -1,24 +1,26 @@
 package com.placeholder.leetcode.math;
 
 /**
+ * https://leetcode.com/problems/valid-number/
+ *
  * @author 阙宇翔
  * @version 2016/2/23
  */
-public class _6ValidNumber {
+public class _65ValidNumber {
 
 
     public static void main(String[] args) {
-        System.out.println(new _6ValidNumber().isNumber("0"));
-        System.out.println(new _6ValidNumber().isNumber(" 0.1 "));
-        System.out.println(!new _6ValidNumber().isNumber("abc"));
-        System.out.println(!new _6ValidNumber().isNumber("1 a"));
-        System.out.println(new _6ValidNumber().isNumber("2e10"));
-        System.out.println(!new _6ValidNumber().isNumber("."));
-        System.out.println(!new _6ValidNumber().isNumber(" "));
-        System.out.println(!new _6ValidNumber().isNumber("0e"));
-        System.out.println(new _6ValidNumber().isNumber("3."));
-        System.out.println(!new _6ValidNumber().isNumber("0 e"));
-        System.out.println(!new _6ValidNumber().isNumber(". "));
+        System.out.println(new _65ValidNumber().isNumber("0"));
+        System.out.println(new _65ValidNumber().isNumber(" 0.1 "));
+        System.out.println(!new _65ValidNumber().isNumber("abc"));
+        System.out.println(!new _65ValidNumber().isNumber("1 a"));
+        System.out.println(new _65ValidNumber().isNumber("2e10"));
+        System.out.println(!new _65ValidNumber().isNumber("."));
+        System.out.println(!new _65ValidNumber().isNumber(" "));
+        System.out.println(!new _65ValidNumber().isNumber("0e"));
+        System.out.println(new _65ValidNumber().isNumber("3."));
+        System.out.println(!new _65ValidNumber().isNumber("0 e"));
+        System.out.println(!new _65ValidNumber().isNumber(". "));
     }
 
     private boolean isDigit(char ch) {
