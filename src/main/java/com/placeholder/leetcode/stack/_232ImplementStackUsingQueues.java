@@ -7,7 +7,7 @@ import java.util.Queue;
  * @author 阙宇翔
  * @version 2016/2/24
  */
-public class ImplementStackUsingQueues {
+public class _232ImplementStackUsingQueues {
     class MyStack {
         Queue<Integer> queue1 = new LinkedList<>();
         Queue<Integer> queue2 = new LinkedList<>();

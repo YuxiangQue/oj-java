@@ -50,8 +50,8 @@ public class _146LRUCache {
         Node node = cacheMap.get(key);
         // Node存在，剥离后加入头部
         if (node != null) {
-            list.detachAny(node);
-            list.attachFirst(node);
+            list.remove(node);
+            list.addFirst(node);
             return node.value;
         } else {
             return -1;
@@ -64,18 +64,18 @@ public class _146LRUCache {
         if (node == null) {
             if (cacheMap.size() >= capacity) {
                 // 从尾部剥离
-                cacheMap.remove(list.detachLast().key);
+                cacheMap.remove(list.removeLast().key);
             }
             node = new Node();
             node.key = key;
             node.value = value;
-            list.attachFirst(node);
+            list.addFirst(node);
             cacheMap.put(key, node);
         } else {
             node.key = key;
             node.value = value;
-            list.detachAny(node);
-            list.attachFirst(node);
+            list.remove(node);
+            list.addFirst(node);
             cacheMap.put(key, node);
         }
     }
@@ -113,7 +113,7 @@ public class _146LRUCache {
          *
          * @return 返回被移除的Node
          */
-        public Node detachLast() {
+        public Node removeLast() {
             if (head.next == tail) {
                 return null;
             }
@@ -133,7 +133,7 @@ public class _146LRUCache {
          * @param node 要移除的Node
          * @return 返回被剥离的Node，当Node为head或tail时返回null
          */
-        public Node detachAny(Node node) {
+        public Node remove(Node node) {
             if (node == head || node == tail) {
                 return null;
             }
@@ -153,7 +153,7 @@ public class _146LRUCache {
          * @param node 要移除的Node
          * @return 返回被添加的Node
          */
-        public Node attachFirst(Node node) {
+        public Node addFirst(Node node) {
             if (node == head || node == tail) {
                 return null;
             }

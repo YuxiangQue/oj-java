@@ -1,4 +1,4 @@
-package com.placeholder.leetcode.design;
+package com.placeholder.leetcode.trie;
 
 /**
  * #Design
@@ -22,20 +22,12 @@ public class _208ImplementTrie {
         System.out.println(trie.search("some"));
         System.out.println(trie.search("somet"));
         System.out.println(trie.startsWith("somet"));
+
     }
 
-    static class TrieNode {
-        // Initialize your data structure here.
-
-        TrieNode[] children = new TrieNode[26]; // 各个子节点
-        int count = 0;
-
-        public TrieNode() {
-
-        }
-    }
 
     public static class Trie {
+
         private TrieNode root;
 
         public Trie() {
@@ -77,6 +69,13 @@ public class _208ImplementTrie {
                 node = node.children[index];
             }
             return true;
+        }
+
+        static class TrieNode {
+            // Initialize your data structure here.
+
+            TrieNode[] children = new TrieNode[26]; // 各个子节点
+            int count = 0;
         }
     }
 }
