@@ -20,11 +20,11 @@ public class _131PalindromePartitioning {
             return partitions;
         }
         List<String> partition = new ArrayList<>();
-        helper(s, 0, partition, partitions);
+        dfs(s, 0, partition, partitions);
         return partitions;
     }
 
-    private void helper(String s, int startIndex, List<String> partition, List<List<String>> partitions) {
+    private void dfs(String s, int startIndex, List<String> partition, List<List<String>> partitions) {
         if (startIndex == s.length()) {
             partitions.add(new ArrayList<>(partition));
             return;
@@ -34,7 +34,7 @@ public class _131PalindromePartitioning {
             String substr = s.substring(startIndex, startIndex + substrLength);
             partition.add(substr);
             if (isPalindrome(substr)) {
-                helper(s, startIndex + substrLength, partition, partitions);
+                dfs(s, startIndex + substrLength, partition, partitions);
             }
             partition.remove(partition.size() - 1);
         }

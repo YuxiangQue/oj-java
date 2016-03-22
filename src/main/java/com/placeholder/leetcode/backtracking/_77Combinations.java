@@ -34,12 +34,12 @@ public class _77Combinations {
             }
             group = new ArrayList<>();
             groups = new ArrayList<>();
-            helper(0);
+            dfs(0);
             return groups;
         }
 
 
-        private void helper(int lastIndex) {
+        private void dfs(int lastIndex) {
             int length = candidates.length;
             // if (group.size() == k) {
             groups.add(new ArrayList<>(group));
@@ -50,7 +50,7 @@ public class _77Combinations {
             }
             for (int i = lastIndex; i < length; ++i) {
                 group.add(candidates[i]);
-                helper(i + 1);
+                dfs(i + 1);
                 group.remove(group.size() - 1);
             }
         }

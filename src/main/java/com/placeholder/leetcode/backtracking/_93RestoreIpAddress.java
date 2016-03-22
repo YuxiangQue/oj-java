@@ -19,7 +19,7 @@ public class _93RestoreIpAddress {
             List<String> possibleIpAddresses = new ArrayList<>();
             if (s.length() < 4 || s.length() > 12)
                 return possibleIpAddresses; //注意字符串有效长度
-            helper(s, 0, new ArrayList<>(), 1, possibleIpAddresses);
+            dfs(s, 0, new ArrayList<>(), 1, possibleIpAddresses);
             return possibleIpAddresses;
         }
 
@@ -31,7 +31,7 @@ public class _93RestoreIpAddress {
          * @param ipAddressCount      ipAddress中共有几个地址段
          * @param possibleIpAddresses 保存所有结果
          */
-        private void helper(String str, int startIndex, List<String> ipAddress, int ipAddressCount, List<String> possibleIpAddresses) {
+        private void dfs(String str, int startIndex, List<String> ipAddress, int ipAddressCount, List<String> possibleIpAddresses) {
             if (startIndex == str.length()) {
                 if (ipAddressCount == 5) {
                     possibleIpAddresses.add(buildIpString(ipAddress));
@@ -44,7 +44,7 @@ public class _93RestoreIpAddress {
                 String num = str.substring(startIndex, startIndex + k);
                 if (validIpAddress(num)) {
                     ipAddress.add(num);
-                    helper(str, startIndex + k, ipAddress, ipAddressCount + 1, possibleIpAddresses);
+                    dfs(str, startIndex + k, ipAddress, ipAddressCount + 1, possibleIpAddresses);
                     ipAddress.remove(ipAddress.size() - 1);
                 }
             }

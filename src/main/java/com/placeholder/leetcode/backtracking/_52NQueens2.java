@@ -1,6 +1,8 @@
 package com.placeholder.leetcode.backtracking;
 
 /**
+ * https://leetcode.com/problems/n-queens-ii/
+ *
  * @author 阙宇翔
  * @version 2016/2/16
  */
@@ -15,7 +17,7 @@ public class _52NQueens2 {
         public static int totalNQueens(int n) {
             int[] total = new int[1];
             int[] colForRow = new int[n];
-            helper(n, colForRow, 0, total);
+            dfs(n, colForRow, 0, total);
             return total[0];
         }
 
@@ -24,7 +26,7 @@ public class _52NQueens2 {
          * @param row          row index
          * @param columnForRow the array which holds the groups
          */
-        private static void helper(int n, int[] columnForRow, int row, int[] total) {
+        private static void dfs(int n, int[] columnForRow, int row, int[] total) {
             // last row
             if (row == n) {
                 total[0] += 1;
@@ -33,7 +35,7 @@ public class _52NQueens2 {
             for (int i = 0; i < n; ++i) {
                 columnForRow[row] = i;
                 if (isValid(columnForRow, row)) {
-                    helper(n, columnForRow, row + 1, total);
+                    dfs(n, columnForRow, row + 1, total);
                 }
                 columnForRow[row] = 0;
             }

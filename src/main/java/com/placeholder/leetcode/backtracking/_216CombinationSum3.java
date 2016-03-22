@@ -36,7 +36,7 @@ public class _216CombinationSum3 {
             }
             group = new ArrayList<>();
             groups = new ArrayList<>();
-            helper(0);
+            dfs(0);
             return groups;
         }
 
@@ -48,7 +48,7 @@ public class _216CombinationSum3 {
             return sum;
         }
 
-        private void helper(int lastIndex) {
+        private void dfs(int lastIndex) {
             int length = candidates.length;
             if (group.size() == k && sum(group) == n) {
                 groups.add(new ArrayList<>(group));
@@ -62,7 +62,7 @@ public class _216CombinationSum3 {
             }
             for (int i = lastIndex; i < length; ++i) {
                 group.add(candidates[i]);
-                helper(i + 1);
+                dfs(i + 1);
                 group.remove(group.size() - 1);
             }
         }

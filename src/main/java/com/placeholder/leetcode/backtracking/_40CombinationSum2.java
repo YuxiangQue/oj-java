@@ -11,6 +11,7 @@ import java.util.List;
  * @version 2016/2/16
  */
 public class _40CombinationSum2 {
+
     public static void main(String[] args) {
         MethodNQueens m = new MethodNQueens();
         List<List<Integer>> result = m.combinationSum2(new int[]{10, 1, 2, 7, 6, 1, 5}, 8);
@@ -24,11 +25,11 @@ public class _40CombinationSum2 {
             if (candidates.length == 0)
                 return result;
             Arrays.sort(candidates);
-            helper(candidates, target, 0, new ArrayList<>(), result);
+            dfs(candidates, target, 0, new ArrayList<>(), result);
             return result;
         }
 
-        private void helper(int[] candidates, int target, int lastIndex, List<Integer> item, List<List<Integer>> result) {
+        private void dfs(int[] candidates, int target, int lastIndex, List<Integer> item, List<List<Integer>> result) {
             if (target < 0)
                 return;
             int length = candidates.length;
@@ -40,9 +41,10 @@ public class _40CombinationSum2 {
                 if (i > lastIndex && candidates[i] == candidates[i - 1])
                     continue;
                 item.add(candidates[i]);
-                helper(candidates, target - candidates[i], i + 1, item, result);
+                dfs(candidates, target - candidates[i], i + 1, item, result);
                 item.remove(item.size() - 1);
             }
         }
     }
+
 }

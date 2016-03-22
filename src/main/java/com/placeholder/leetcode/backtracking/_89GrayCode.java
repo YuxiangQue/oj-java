@@ -20,11 +20,11 @@ public class _89GrayCode {
         public List<Integer> grayCode(int n) {
             int[] item = new int[n];
             List<Integer> result = new ArrayList<>();
-            helper(item, 0, result);
+            dfs(item, 0, result);
             return result;
         }
 
-        public void helper(int[] bitset, int index, List<Integer> result) {
+        public void dfs(int[] bitset, int index, List<Integer> result) {
             int n = bitset.length;
             if (index == n) {
                 int value = 0;
@@ -35,9 +35,9 @@ public class _89GrayCode {
                 result.add(value);
                 return;
             }
-            helper(bitset, index + 1, result);
+            dfs(bitset, index + 1, result);
             bitset[index] = bitset[index] == 1 ? 0 : 1;
-            helper(bitset, index + 1, result);
+            dfs(bitset, index + 1, result);
         }
     }
 }

@@ -149,7 +149,7 @@ public class _79WordSearch {
         this.word = word.toCharArray();
         for (int i = 0; i < rows; ++i) {
             for (int j = 0; j < cols; ++j) {
-                if (helper(i, j, new char[word.length()], 0)) {
+                if (dfs(i, j, new char[word.length()], 0)) {
                     return true;
                 }
             }
@@ -157,7 +157,7 @@ public class _79WordSearch {
         return false;
     }
 
-    private boolean helper(
+    private boolean dfs(
             int row,
             int col,
             char[] sb,
@@ -180,11 +180,12 @@ public class _79WordSearch {
         }
         char tmp = sb[index] = board[row][col];
         board[row][col] = '#';  // visited
-        boolean result = (helper(row - 1, col, sb, index + 1)) ||
-                (helper(row + 1, col, sb, index + 1)) ||
-                (helper(row, col - 1, sb, index + 1)) ||
-                (helper(row, col + 1, sb, index + 1));
+        boolean result = (dfs(row - 1, col, sb, index + 1)) ||
+                (dfs(row + 1, col, sb, index + 1)) ||
+                (dfs(row, col - 1, sb, index + 1)) ||
+                (dfs(row, col + 1, sb, index + 1));
         board[row][col] = tmp;
         return result;
     }
+
 }

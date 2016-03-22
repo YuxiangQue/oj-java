@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * https://leetcode.com/problems/letter-combinations-of-a-phone-number/
  * @author 阙宇翔
  * @version 2016/2/17
  */
 public class _17LetterCombinationsOfAPhoneNumber {
+
     public static void main(String[] args) {
         System.out.println(new _17LetterCombinationsOfAPhoneNumber().letterCombinations(""));
         System.out.println(new _17LetterCombinationsOfAPhoneNumber().letterCombinations("23"));
@@ -18,11 +20,11 @@ public class _17LetterCombinationsOfAPhoneNumber {
         if (digits.length() == 0)
             return combinations;
         List<String> candidates = buildCandidates();
-        helper(digits, 0, candidates, new StringBuilder(), combinations);
+        dfs(digits, 0, candidates, new StringBuilder(), combinations);
         return combinations;
     }
 
-    private void helper(String digits, int digitIndex, List<String> candidates, StringBuilder sb, List<String> combinations) {
+    private void dfs(String digits, int digitIndex, List<String> candidates, StringBuilder sb, List<String> combinations) {
         if (digitIndex == digits.length()) {
             combinations.add(sb.toString());
             return;
@@ -32,7 +34,7 @@ public class _17LetterCombinationsOfAPhoneNumber {
         int candidateLength = candidate.length();
         for (int i = 0; i < candidateLength; ++i) {
             sb.append(candidate.charAt(i));
-            helper(digits, digitIndex + 1, candidates, sb, combinations);
+            dfs(digits, digitIndex + 1, candidates, sb, combinations);
             sb.deleteCharAt(sb.length() - 1);
         }
     }

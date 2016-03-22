@@ -49,15 +49,15 @@ public class _140WordBreak2 {
             for (String word : wordDict) {
                 wordMap.put(word, false);
             }
-            helper(s, 0, wordMap, new ArrayList<>(), sentenses);
+            dfs(s, 0, wordMap, new ArrayList<>(), sentenses);
             return sentenses;
         }
 
-        private void helper(String s,
-                            int index,
-                            Map<String, Boolean> wordMap,
-                            List<String> sentense,
-                            List<String> sentenses) {
+        private void dfs(String s,
+                         int index,
+                         Map<String, Boolean> wordMap,
+                         List<String> sentense,
+                         List<String> sentenses) {
             int length = s.length();
             if (index == length) {
                 StringBuilder sb = new StringBuilder();
@@ -81,7 +81,7 @@ public class _140WordBreak2 {
                 if (word.equals(word1)) {
                     wordMap.put(word, true);
                     sentense.add(word);
-                    helper(s, index + word.length(), wordMap, sentense, sentenses);
+                    dfs(s, index + word.length(), wordMap, sentense, sentenses);
                     sentense.remove(sentense.size() - 1);
                     wordMap.put(word, false);
                 }

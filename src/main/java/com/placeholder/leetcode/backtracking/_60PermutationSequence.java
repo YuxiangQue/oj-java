@@ -23,7 +23,7 @@ public class _60PermutationSequence {
             for (int i = 0; i < n; ++i) {
                 candidates.add(i + 1);
             }
-            helper(n, k, candidates, new ArrayList<>(), possibleSequences);
+            dfs(n, k, candidates, new ArrayList<>(), possibleSequences);
             return buildString(possibleSequences.get(possibleSequences.size() - 1));
         }
 
@@ -46,7 +46,7 @@ public class _60PermutationSequence {
          * @param possibleSequences 所有组合
          * @return
          */
-        private boolean helper(int n, int k, List<Integer> candidates, List<Integer> sequence, List<List<Integer>> possibleSequences) {
+        private boolean dfs(int n, int k, List<Integer> candidates, List<Integer> sequence, List<List<Integer>> possibleSequences) {
             if (candidates.size() == 0) {
                 possibleSequences.add(new ArrayList<>(sequence));
                 return possibleSequences.size() == k;
@@ -55,7 +55,7 @@ public class _60PermutationSequence {
             for (int i = 0; i < length; i++) {
                 int tmp = candidates.remove(i);
                 sequence.add(tmp);
-                if (helper(n, k, candidates, sequence, possibleSequences)) {
+                if (dfs(n, k, candidates, sequence, possibleSequences)) {
                     return true;
                 }
                 sequence.remove(sequence.size() - 1);

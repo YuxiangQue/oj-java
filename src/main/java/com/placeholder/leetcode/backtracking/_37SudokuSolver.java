@@ -10,6 +10,7 @@ import java.util.Arrays;
  * @version 2016/2/16
  */
 public class _37SudokuSolver {
+
     public static void main(String[] args) {
         String[] board = new String[]{"..9748...", "7........", ".2.1.9...", "..7...24.", ".64.1.59.", ".98...3..", "...8.3.2.", "........6", "...2759.."};
         char[][] board1 = new char[9][9];
@@ -26,26 +27,26 @@ public class _37SudokuSolver {
     public void solveSudoku(char[][] board) {
         if (board == null || board.length != 9 || board[0].length != 9)
             return;
-        helper(board, 0, 0);
+        dfs(board, 0, 0);
     }
 
-    private boolean helper(char[][] board, int row, int col) {
+    private boolean dfs(char[][] board, int row, int col) {
         if (col >= 9)
-            return helper(board, row + 1, 0);
+            return dfs(board, row + 1, 0);
         if (row == 9)
             return true;
         if (board[row][col] == '.') {
             for (int i = 1; i <= 9; ++i) {
                 board[row][col] = (char) (i + '0');
                 if (isValid(board, row, col)) {
-                    if (helper(board, row, col + 1)) {
+                    if (dfs(board, row, col + 1)) {
                         return true;
                     }
                 }
                 board[row][col] = '.';
             }
         } else {
-            return helper(board, row, col + 1);
+            return dfs(board, row, col + 1);
         }
         return false;
     }
