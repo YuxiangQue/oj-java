@@ -3,7 +3,8 @@ package com.placeholder.hihoCoder.microsoft;
 import java.util.Scanner;
 
 /**
- * Created by Joyce on 2016/3/9.
+ * @author 阙宇翔
+ * @version 2016/3/9
  */
 public class _1 {
     public static void main(String[] args) {

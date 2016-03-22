@@ -1,8 +1,11 @@
 package com.placeholder.hihoCoder.microsoft;
 
+
 /**
  * http://hihocoder.com/discuss/question/2857/
- * Created by yuxiangque on 2016/3/14.
+ *
+ * @author 阙宇翔
+ * @version 2016/3/14
  */
 public class _89Divisors {
 

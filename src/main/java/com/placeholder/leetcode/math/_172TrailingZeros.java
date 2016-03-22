@@ -21,6 +21,7 @@ public class _172TrailingZeros {
      * Note: Your solution should be in logarithmic time complexity.
      *
      * @param n
+     * @param numZeros
      * @return
      */
     public void trailingZeroes(int n, int[] numZeros) {

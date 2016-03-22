@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/unique-binary-search-trees-ii/
+ * https://leetcode.com/discuss/10254/a-simple-recursive-solution
  *
  * @author 阙宇翔
  * @version 2016/2/23
@@ -19,19 +20,16 @@ public class _95UniqueBinarySearchTree2 {
         tree = new _95UniqueBinarySearchTree2().generateTrees(3);
     }
 
-    // 0 n-1
-    // 1 n-2
-    // 2 n-3
-    // ...
-    // n-1 0
-    // T(j) = T(0)*T(n-1) + ... + T(n-1)*T(0)
+    /**
+     * @param n
+     * @return
+     */
     public List<TreeNode> generateTrees(int n) {
         if (n <= 0)
             return new ArrayList<>();
         return helper(1, n);
     }
 
-    // https://leetcode.com/discuss/10254/a-simple-recursive-solution
     private List<TreeNode> helper(int begin, int end) {
         List<TreeNode> tree = new ArrayList<>();
         if (begin > end) {

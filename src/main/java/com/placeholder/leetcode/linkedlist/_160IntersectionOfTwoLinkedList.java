@@ -3,7 +3,8 @@ package com.placeholder.leetcode.linkedlist;
 import com.placeholder.common.ListNode;
 
 /**
- * Created by yuxiangque on 2016/3/21.
+ * @author 阙宇翔
+ * @version 2016/3/21
  */
 public class _160IntersectionOfTwoLinkedList {
     ListNode getIntersectionNode(ListNode headA, ListNode headB) {

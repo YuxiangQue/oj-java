@@ -38,11 +38,13 @@ public class _60PermutationSequence {
             return sb.toString();
         }
 
-
         /**
+         * @param n
+         * @param k
          * @param candidates        可用的
          * @param sequence          持有当前组合
          * @param possibleSequences 所有组合
+         * @return
          */
         private boolean helper(int n, int k, List<Integer> candidates, List<Integer> sequence, List<List<Integer>> possibleSequences) {
             if (candidates.size() == 0) {

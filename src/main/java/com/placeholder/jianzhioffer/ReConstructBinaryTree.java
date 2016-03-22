@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by yuxiangque on 2016/3/18.
+ * @author 阙宇翔
+ * @version 2016/3/18
  */
 public class ReConstructBinaryTree {
     TreeNode reConstructBinaryTree(List<Integer> preOrder,

@@ -3,7 +3,8 @@ package com.placeholder.leetcode.stack;
 import java.util.Stack;
 
 /**
- * Created by yuxiangque on 2016/3/21.
+ * @author 阙宇翔
+ * @version 2016/3/21
  */
 public class _150EvaluateReversePolishNotation {
     public static int evalRPN(String[] tokens) {

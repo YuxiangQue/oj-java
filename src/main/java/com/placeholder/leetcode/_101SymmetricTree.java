@@ -3,8 +3,8 @@ package com.placeholder.leetcode;
 import com.placeholder.common.TreeNode;
 
 /**
- * https://leetcode.com/problems/symmetric-tree/
- * Created by yuxiangque on 2016/3/18.
+ * @author yuxiangque
+ * @version 2016/3/18
  */
 public class _101SymmetricTree {
     boolean _isSymmetric(TreeNode left, TreeNode right) {

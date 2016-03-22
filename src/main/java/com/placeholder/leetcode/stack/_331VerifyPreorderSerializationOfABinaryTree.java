@@ -3,14 +3,15 @@ package com.placeholder.leetcode.stack;
 import java.util.*;
 
 /**
- * Created by yuxiangque on 2016/3/21.
+ * https://leetcode.com/problems/verify-preorder-serialization-of-a-binary-tree/
+ * https://www.hrwhisper.me/leetcode-verify-preorder-serialization-of-a-binary-tree/
+ *
+ * @author 阙宇翔
+ * @version 2016/3/21
  */
 public class _331VerifyPreorderSerializationOfABinaryTree {
 
     /**
-     * https://leetcode.com/problems/verify-preorder-serialization-of-a-binary-tree/
-     * https://www.hrwhisper.me/leetcode-verify-preorder-serialization-of-a-binary-tree/
-     *
      * @param preorder
      * @return
      */

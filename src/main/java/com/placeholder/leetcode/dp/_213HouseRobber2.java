@@ -1,8 +1,11 @@
 package com.placeholder.leetcode.dp;
 
+
 /**
  * https://leetcode.com/problems/house-robber-ii/
- * Created by yuxiangque on 2016/3/18.
+ *
+ * @author 阙宇翔
+ * @version 2016/3/18
  */
 public class _213HouseRobber2 {
     public static int rob(int[] nums) {

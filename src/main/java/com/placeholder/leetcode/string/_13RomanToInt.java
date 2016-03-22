@@ -1,7 +1,8 @@
 package com.placeholder.leetcode.string;
 
 /**
- * Created by yuxiangque on 2016/3/18.
+ * @author 阙宇翔
+ * @version 2016/3/18
  */
 public class _13RomanToInt {
     int romanToInt(String s) {

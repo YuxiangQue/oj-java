@@ -4,7 +4,8 @@ import java.util.*;
 
 /**
  * https://leetcode.com/problems/basic-calculator-ii/
- * Created by yuxiangque on 2016/3/21.
+ * @author 阙宇翔
+ * @version 2016/3/21
  */
 public class _227BasicCalculator2 {
     private static String integer(String s, int[] index) {

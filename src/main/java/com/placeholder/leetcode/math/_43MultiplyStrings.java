@@ -2,7 +2,8 @@ package com.placeholder.leetcode.math;
 
 /**
  * http://blog.csdn.net/s634772208/article/details/46505949
- * Created by yuxiangque on 2016/3/21.
+ * @author 阙宇翔
+ * @version 2016/3/21
  */
 public class _43MultiplyStrings {
 

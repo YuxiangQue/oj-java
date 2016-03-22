@@ -4,7 +4,8 @@ import java.util.*;
 
 /**
  * https://leetcode.com/problems/repeated-dna-sequences/
- * Created by yuxiangque on 2016/3/18.
+ * @author 阙宇翔
+ * @version 2016/3/18
  */
 public class _187RepeatedDnaSequence {
     public static List<String> findRepeatedDnaSequences(String s) {

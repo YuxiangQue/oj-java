@@ -7,7 +7,9 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/largest-number/
- * Created by yuxiangque on 2016/3/14.
+ *
+ * @author 阙宇翔
+ * @version 2016/3/14
  */
 public class _179LargestNumber {
 

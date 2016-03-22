@@ -2,7 +2,8 @@ package com.placeholder.leetcode.bsearch;
 
 /**
  * https://leetcode.com/problems/first-bad-version/
- * Created by yuxiangque on 2016/3/21.
+ * @author 阙宇翔
+ * @version 2016/3/21
  */
 public class _278FirstBadVersion {
 

@@ -2,9 +2,12 @@ package com.placeholder.leetcode;
 
 import com.placeholder.common.ListNode;
 
+
 /**
  * https://leetcode.com/problems/remove-duplicates-from-sorted-list/
- * Created by yuxiangque on 2016/3/18.
+ *
+ * @author 阙宇翔
+ * @version 2016/3/18
  */
 public class _83RemoveDuplicatesFromSortedList {
     ListNode deleteDuplicates(ListNode head) {

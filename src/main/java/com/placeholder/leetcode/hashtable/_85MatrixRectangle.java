@@ -1,7 +1,9 @@
 package com.placeholder.leetcode.hashtable;
 
 /**
- * Created by yuxiangque on 2016/3/18.
+ *
+ * @author 阙宇翔
+ * @version 2016/3/18
  */
 public class _85MatrixRectangle {
 

@@ -4,7 +4,8 @@ import java.util.Stack;
 import java.util.jar.Pack200;
 
 /**
- * Created by yuxiangque on 2016/3/14.
+ * @author 阙宇翔
+ * @version 2016/3/14
  */
 public class _155MinStack {
     public static void main(String[] args) {

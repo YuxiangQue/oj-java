@@ -3,7 +3,9 @@ package com.placeholder.leetcode.linkedlist;
 import com.placeholder.common.ListNode;
 
 /**
- * Created by yuxiangque on 2016/3/21.
+ * https://leetcode.com/problems/reorder-list/
+ * @author 阙宇翔
+ * @version 2016/3/21
  */
 public class _143ReorderList {
     void reorderList(ListNode head) {

@@ -7,12 +7,10 @@ package com.placeholder.leetcode.tree;
 public class _96UniqueBinarySearchTree {
 
 
-    // 0 n-1
-    // 1 n-2
-    // 2 n-3
-    // ...
-    // n-1 0
-    // T(j) = T(0)*T(n-1) + ... + T(n-1)*T(0)
+    /**
+     * @param n
+     * @return
+     */
     int numTrees(int n) {
         int[] num = new int[n + 1];
         for (int i = 0; i < n + 1; ++i)

@@ -4,7 +4,9 @@ import java.util.Objects;
 
 /**
  * https://leetcode.com/problems/longest-common-prefix/
- * Created by yuxiangque on 2016/3/14.
+ *
+ * @author 阙宇翔
+ * @version 2016/3/14
  */
 public class _14LongestCommonPrefix {
 

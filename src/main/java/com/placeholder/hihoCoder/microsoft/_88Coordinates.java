@@ -2,9 +2,12 @@ package com.placeholder.hihoCoder.microsoft;
 
 import java.util.Scanner;
 
+
 /**
  * http://hihocoder.com/discuss/question/2839/
- * Created by Joyce on 2016/3/9.
+ *
+ * @author 阙宇翔
+ * @version 2016/3/9
  */
 public class _88Coordinates {
 

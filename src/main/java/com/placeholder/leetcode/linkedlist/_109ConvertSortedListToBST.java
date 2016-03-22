@@ -11,12 +11,6 @@ public class _109ConvertSortedListToBST {
 
 
     /**
-     * 深度优先搜索
-     * 找出当前链表的中间节点，
-     * 然后再递归左右的子链表，
-     * 开始的时候程序先计算链表总厂，
-     * 然后传入两个前后索引指针，
-     * 最后每次递归找出中间节点即可。
      *
      * @param head
      * @param tail

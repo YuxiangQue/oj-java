@@ -1,7 +1,8 @@
 package com.placeholder.leetcode.dp;
 
 /**
- * Created by yuxiangque on 2016/3/14.
+ * @author 阙宇翔
+ * @version 2016/3/14
  */
 public class _70ClimbingStairs {
     // S[n] = S[n-1] + S[n-2]

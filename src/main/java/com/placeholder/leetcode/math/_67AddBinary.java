@@ -1,7 +1,8 @@
 package com.placeholder.leetcode.math;
 
 /**
- * Created by yuxiangque on 2016/3/21.
+ * @author 阙宇翔
+ * @version 2016/3/21
  */
 public class _67AddBinary {
     public static String addBinary(String a, String b) {

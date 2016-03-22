@@ -2,7 +2,9 @@ package com.placeholder.leetcode.dp;
 
 /**
  * https://leetcode.com/problems/longest-increasing-subsequence/
- * Created by yuxiangque on 2016/3/14.
+ *
+ * @author 阙宇翔
+ * @version 2016/3/14
  */
 public class _300LongestIncreasingSubsequence {
 

@@ -44,16 +44,6 @@ public class _144BinaryTreePreorderTraversal {
     }
 
     /**
-     * void inorder(Node *node) {
-     * do_something(node);
-     * if (NULl != node->left) {
-     * inorder(node->left);
-     * }
-     * if (NULL != node->right) {
-     * inorder(node->right);
-     * }
-     * }
-     *
      * @param root
      * @return
      */
