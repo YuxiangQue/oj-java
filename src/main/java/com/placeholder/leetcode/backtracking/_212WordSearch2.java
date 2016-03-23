@@ -5,6 +5,8 @@ import com.placeholder.common.Trie;
 import java.util.*;
 
 /**
+ * https://leetcode.com/problems/word-search-ii/
+ * http://blog.csdn.net/ljiabin/article/details/45846527
  * @author 阙宇翔
  * @version 2016/3/21
  */
@@ -23,7 +25,6 @@ public class _212WordSearch2 {
         System.out.println(new WordSearch2().findWords(charCharArray, new String[]{"oath", "pea", "eat", "rain"}));
     }
 
-    // http://blog.csdn.net/ljiabin/article/details/45846527
     static class WordSearch2 {
         Trie trie;
         char[][] board;
