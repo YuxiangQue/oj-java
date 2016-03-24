@@ -1,4 +1,4 @@
-package com.placeholder.leetcode.array;
+package com.placeholder.leetcode.math;
 
 /**
  * @author 阙宇翔

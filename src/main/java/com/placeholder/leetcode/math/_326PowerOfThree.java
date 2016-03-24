@@ -13,6 +13,6 @@ public class _326PowerOfThree {
      * @return
      */
     public boolean isPowerOfThree(int n) {
-        return false;
+        return n > 0 && (1162261467 % n == 0);
     }
 }

@@ -30,6 +30,7 @@ public class _318MaximumProductOfWordLengths {
         int maxProduct = 0;
         for (int i = 0; i < words.length; i++) {
             for (int j = i + 1; j < words.length; j++) {
+                // and 操作
                 if ((letterMaps.get(i) & letterMaps.get(j)) == 0) {
                     int product = words[i].length() * words[j].length();
                     if (product > maxProduct)
