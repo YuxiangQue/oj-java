@@ -1,4 +1,4 @@
-package com.placeholder.leetcode;
+package com.placeholder.leetcode.heap;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;

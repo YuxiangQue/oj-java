@@ -1,4 +1,4 @@
-package com.placeholder.leetcode;
+package com.placeholder.leetcode.hashtable;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.placeholder.leetcode;
+package com.placeholder.leetcode.stack;
 
 import java.util.Stack;
 import java.util.jar.Pack200;

@@ -1,4 +1,4 @@
-package com.placeholder.leetcode;
+package com.placeholder.leetcode.hashtable;
 
 import java.util.Arrays;
 
@@ -19,29 +19,41 @@ public class _274HIndex {
         return index;
     }
 
-    // countSort 变种
-    // http://blog.csdn.net/xudli/article/details/48226129
+    /**
+     * https://en.wikipedia.org/wiki/H-index
+     * http://www.thinksaas.cn/group/topic/395874/
+     * <p>
+     * 10 8 5 4 3
+     * 0 0 0 0 1
+     * 0 0 0 0 2
+     * 0 0 0 0 3
+     * 0 0 0 1 3
+     * 0 0 1 1 3
+     *
+     * @param citations
+     * @return
+     */
     public static int hIndex1(int[] citations) {
         int length = citations.length;
         if (length == 0)
             return 0;
-        int[] countArr = new int[length + 1];
+        int[] papers = new int[length + 1];
 
-        // 填充countArr
+        // 填充 citations->papers 数组
         for (int citation : citations) {
             if (citation >= length)
-                countArr[length] += 1;
+                papers[length] += 1;
             else
-                countArr[citation] += 1;
+                papers[citation] += 1;
         }
 
-        if (countArr[length] >= length)
+        if (papers[length] >= length)
             return length;
 
-        for (int i = length - 1; i >= 0; --i) {
-            countArr[i] = countArr[i] + countArr[i + 1];
-            if (countArr[i] >= i)
-                return i;
+        for (int index = length - 1; index >= 0; --index) {
+            papers[index] = papers[index] + papers[index + 1];
+            if (papers[index] >= index)
+                return index;
         }
         return 0;
     }
