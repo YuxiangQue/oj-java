@@ -16,9 +16,9 @@ public class _3LongestSubstringWithoutRepeatingCharacters {
 
     @Test
     public void test() {
-        Assert.assertEquals(2, lengthOfLongestSubstring("au"));
-        Assert.assertEquals(2, lengthOfLongestSubstring("abba"));
-        Assert.assertEquals(1, lengthOfLongestSubstring("bbbbb"));
+        //  Assert.assertEquals(2, lengthOfLongestSubstring("au"));
+        //  Assert.assertEquals(2, lengthOfLongestSubstring("abba"));
+        // Assert.assertEquals(1, lengthOfLongestSubstring("bbbbb"));
         Assert.assertEquals(3, lengthOfLongestSubstring("abcabcbb"));
         Assert.assertEquals(8, lengthOfLongestSubstring("qpxrjxkltzyx"));
     }
@@ -32,16 +32,14 @@ public class _3LongestSubstringWithoutRepeatingCharacters {
         Arrays.fill(hash, -1);
         int max = 1;
         int left = 0;
-        int right = 1;
-
         hash[s.charAt(0)] = 0;
-        while (right < length) {
-            if (hash[s.charAt(right)] >= left) {
-                left = hash[s.charAt(right)] + 1;
+        for (int right = 1; right < length; ++right) {
+            char ch = s.charAt(right);
+            if (hash[ch] >= left) {  //
+                left = hash[ch] + 1;
             }
             max = Math.max(max, right - left + 1);
-            hash[s.charAt(right)] = right;
-            right++;
+            hash[ch] = right;
         }
         return max;
     }

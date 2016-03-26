@@ -13,7 +13,7 @@ import java.util.Stack;
  * @author 阙宇翔
  * @version 2016/2/18
  */
-public class _173BinaryTreeIterator {
+public class _173BinarySearchTreeIterator {
 
 
     public static void main(String[] args) {
