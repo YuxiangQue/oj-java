@@ -1,6 +1,4 @@
-package com.placeholder.leetcode;
-
-import java.util.Objects;
+package com.placeholder.leetcode.string;
 
 /**
  * https://leetcode.com/problems/longest-common-prefix/

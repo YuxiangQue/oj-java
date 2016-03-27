@@ -1,15 +1,15 @@
-package com.placeholder.leetcode;
+package com.placeholder.leetcode.string;
 
 import java.util.*;
 
 /**
+ * https://leetcode.com/problems/anagrams/
+ * https://leetcode.com/discuss/58561/share-my-short-java-solution
  * @author 阙宇翔
  * @version 2016/2/16
  */
 public class _49GroupAnagrams {
 
-
-    // https://leetcode.com/discuss/58561/share-my-short-java-solution
     public static List<List<String>> groupAnagrams(String[] strs) {
         if (strs == null || strs.length == 0)
             return new ArrayList<>();
