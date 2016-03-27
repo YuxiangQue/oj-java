@@ -1,16 +1,16 @@
 package com.placeholder.leetcode.hashtable;
 
-import com.placeholder.common.Ints;
-
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
+ * https://leetcode.com/problems/two-sum/
  * @author 阙宇翔
  * @version 2016/2/16
  */
 public class _1TwoSum {
 
-    // https://leetcode.com/problems/two-sum/
     public static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> numIndexMap = new HashMap<>();
         for (int index = 0; index < nums.length; index++) {

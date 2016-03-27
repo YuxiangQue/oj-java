@@ -23,6 +23,8 @@ public class _313SuperUglyNumber {
                 minNextUglyNumber = nextUglyNumber < minNextUglyNumber ? nextUglyNumber : minNextUglyNumber;
             }
             uglyNumbers[nextUglyIndex] = minNextUglyNumber;
+
+            // 更新L1,L2...下标
             for (int i = 0; i < primes.length; i++) {
                 while (uglyNumbers[multiply[i]] * primes[i] <= minNextUglyNumber)
                     ++multiply[i];

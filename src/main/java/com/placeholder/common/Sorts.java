@@ -159,7 +159,7 @@ public class Sorts {
      * @param toAdjust 待调整的数组元素的位
      * @param <T>
      */
-    public static <T extends Comparable<T>> void _heapAdjust(T[] arr, int len, int toAdjust) {
+    public static <T extends Comparable<T>> void siftUp(T[] arr, int len, int toAdjust) {
         int child;
         T tmp;
         for (tmp = arr[toAdjust]; 2 * toAdjust + 1 < len; toAdjust = child) {
@@ -185,12 +185,12 @@ public class Sorts {
         int len = arr.length;
         int i;
         for (i = len / 2 - 1; i >= 0; --i)
-            _heapAdjust(arr, len, i);
+            siftUp(arr, len, i);
         for (i = len - 1; i > 0; --i) {
             T tmp = arr[0];
             arr[0] = arr[i];
             arr[i] = tmp;
-            _heapAdjust(arr, i, 0);
+            siftUp(arr, i, 0);
         }
     }
 

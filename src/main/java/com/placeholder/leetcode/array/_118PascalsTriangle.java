@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * https://leetcode.com/problems/pascals-triangle/
+ *
  * @author 阙宇翔
  * @version 2016/2/18
  */
@@ -13,19 +15,11 @@ public class _118PascalsTriangle {
     }
 
     /**
-     * https://leetcode.com/problems/pascals-triangle/
-     * Given numRows, generate the first numRows of Pascal's triangle.
-     * <p/>
-     * For example, given numRows = 5,
-     * Return
-     * <p/>
-     * [
      * [1],
      * [1,1],
      * [1,2,1],
      * [1,3,3,1],
      * [1,4,6,4,1]
-     * ]
      *
      * @param numRows
      * @return
