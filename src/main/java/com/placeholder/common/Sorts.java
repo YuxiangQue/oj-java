@@ -89,6 +89,35 @@ public class Sorts {
         }
     }
 
+    public static <T extends Comparable<T>> int partition(T arr[], int begin, int end) {
+        if (begin >= end)
+            return begin;
+        T pivotValue = arr[begin];
+        int left = begin + 1;
+        int right = end;
+        for (; ; ) {
+            for (; left < end && arr[left].compareTo(pivotValue) < 0; ++left) {
+            }
+
+            //循环结束时保证left指向小于等于pivot的数，right指向大于pivot的数
+            for (; right > begin && arr[right].compareTo(pivotValue) >= 0; --right) {
+            }
+            if (left >= right)
+                break;
+            T tmp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tmp;
+            ++left;
+            --right;
+        }
+
+        // 因为pivot是首元素，即表示最后要跟一个比pivot小的元素还位置，应该是right
+        T tmp = arr[begin];
+        arr[begin] = arr[right];
+        arr[right] = tmp;
+        return right;
+    }
+
     private static <T extends Comparable<T>> void _quickSort(T arr[], int begin, int end) {
         if (begin >= end)
             return;
