@@ -1,4 +1,4 @@
-package com.placeholder.leetcode.tree;
+package com.placeholder.leetcode.tree.dfs;
 
 import com.placeholder.common.TreeNode;
 
@@ -7,19 +7,19 @@ import com.placeholder.common.TreeNode;
  * @version 2016/2/23
  */
 public class _101SymmetricTree {
-    boolean helper(TreeNode left, TreeNode right) {
+    boolean dfs(TreeNode left, TreeNode right) {
         if (left == null && right == null)
             return true;
         if (left == null || right == null)
             return false;
         return left.val == right.val
-                && helper(left.left, right.right)
-                && helper(left.right, right.left);
+                && dfs(left.left, right.right)
+                && dfs(left.right, right.left);
     }
 
     boolean isSymmetric(TreeNode root) {
         if (root == null)
             return true;
-        return helper(root.left, root.right);
+        return dfs(root.left, root.right);
     }
 }

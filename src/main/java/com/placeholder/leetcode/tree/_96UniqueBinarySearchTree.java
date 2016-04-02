@@ -1,6 +1,7 @@
 package com.placeholder.leetcode.tree;
 
 /**
+ * https://leetcode.com/discuss/24282/dp-solution-in-6-lines-with-explanation-f-i-n-g-i-1-g-n-i
  * @author 阙宇翔
  * @version 2016/2/23
  */
@@ -8,6 +9,8 @@ public class _96UniqueBinarySearchTree {
 
 
     /**
+     * G(n) = F(1, n) + F(2, n) + ... + F(n, n)
+     * F(i, n) = G(i-1) * G(n-i)
      * @param n
      * @return
      */

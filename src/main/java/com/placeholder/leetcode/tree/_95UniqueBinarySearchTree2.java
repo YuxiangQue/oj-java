@@ -15,22 +15,22 @@ import java.util.List;
 public class _95UniqueBinarySearchTree2 {
 
     public static void main(String[] args) {
-        List<TreeNode> tree = new _95UniqueBinarySearchTree2().generateTrees(1);
-        tree = new _95UniqueBinarySearchTree2().generateTrees(2);
-        tree = new _95UniqueBinarySearchTree2().generateTrees(3);
+        List<TreeNode> tree = generateTrees(3);
+        //  tree = generateTrees(4);
+        //  tree = generateTrees(5);
     }
 
     /**
      * @param n
      * @return
      */
-    public List<TreeNode> generateTrees(int n) {
+    public static List<TreeNode> generateTrees(int n) {
         if (n <= 0)
             return new ArrayList<>();
         return helper(1, n);
     }
 
-    private List<TreeNode> helper(int begin, int end) {
+    private static List<TreeNode> helper(int begin, int end) {
         List<TreeNode> tree = new ArrayList<>();
         if (begin > end) {
             // 空也算
@@ -41,12 +41,9 @@ public class _95UniqueBinarySearchTree2 {
             tree.add(new TreeNode(begin));
             return tree;
         }
-
         for (int i = begin; i <= end; ++i) {
-            // 所有左组合
-            List<TreeNode> left = helper(begin, i - 1);
-            // 所有右组合
-            List<TreeNode> right = helper(i + 1, end);
+            List<TreeNode> left = helper(begin, i - 1); // 所有左组合
+            List<TreeNode> right = helper(i + 1, end); // 所有右组合
             for (TreeNode leftNode : left) {
                 for (TreeNode rightNode : right) {
                     TreeNode root = new TreeNode(i);

@@ -2,6 +2,7 @@ package com.placeholder.pack;
 
 /**
  * http://love-oriented.com/pack/
+ * http://blog.csdn.net/insistgogo/article/details/8579597
  *
  * @author yuxiangque
  * @version 2016/4/2
@@ -17,31 +18,53 @@ public class pack01 {
     //  m[n][j] = vn
     // else
     //  0
-    static void pack01(int capacity, int[] weight, int[] value) {
+
+    /**
+     * @param capacity 容量为capacity的背包
+     * @param weight   第i件物品的价值是weight[i]
+     * @param value    第i件物品的费用是value[i]
+     */
+    static int pack01(int capacity, int[] weight, int[] value) {
         int n = weight.length - 1;
         int[][] m = new int[n + 1][capacity + 1];
 
-        // w[n]
-        for (int j = 0; j <= capacity; ++j) {
-            if (j > weight[n])
-                m[n][j] = value[n];
-        }
-
-        // w[n-1] .. w[1]
-        for (int i = n - 1; i >= 1; --i) { // row
-            for (int j = 0; j <= capacity; j++) { // column
-                if (j < weight[i]) { // 当前位置就不能放置
-                    m[i][j] = m[i + 1][j];
+        // 1..n
+        for (int i = 1; i <= n; ++i) { // row
+            for (int remainCapacity = 0; remainCapacity <= capacity; remainCapacity++) { // column
+                if (remainCapacity < weight[i]) { // 当前位置就不能放置
+                    m[i][remainCapacity] = m[i - 1][remainCapacity];
                 } else {
-                    m[i][j] = m[i + 1][j] > m[i + 1][j - weight[i]] + value[i] ?
-                            m[i + 1][j] : m[i + 1][j - weight[i]] + value[i];
+                    m[i][remainCapacity] = m[i - 1][remainCapacity] > m[i - 1][remainCapacity - weight[i]] + value[i] ?
+                            m[i - 1][remainCapacity] :
+                            m[i - 1][remainCapacity - weight[i]] + value[i];
                 }
             }
         }
-        return;
+
+        int max = 0;
+        for (int m2 : m[n]) {
+            max = m2 > max ? m2 : max;
+        }
+        return max;
     }
 
+    static int searchPack(int capacity, int[] weight, int[] value, int i, int j) {
+        if (i == weight.length) {
+            return value[i - 1];
+        }
+        if (j < weight[i]) {
+            return searchPack(capacity, weight, value, i + 1, j);
+        } else {
+            return Math.max(searchPack(capacity, weight, value, i + 1, j),
+                    searchPack(capacity, weight, value, i + 1, j - weight[i]));
+        }
+    }
+
+
     public static void main(String[] args) {
-        pack01(10, new int[]{0, 3, 4, 5}, new int[]{0, 4, 5, 6});
+        System.out.println(pack01(10, new int[]{0, 3, 4, 5}, new int[]{0, 4, 5, 6}));
+
+        int max = searchPack(10, new int[]{0, 3, 4, 5}, new int[]{0, 4, 5, 6}, 0, 0);
+        System.out.println(max);
     }
 }

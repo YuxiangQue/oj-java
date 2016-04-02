@@ -12,6 +12,14 @@ import java.util.List;
  * @version 2016/3/30
  */
 public class _241DifferentWaysToAddParenthess {
+    static int f(int x) {
+        return (x > 2) ? x * f(x - 1) : 3;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(f(f(2)));
+    }
+
     public List<Integer> diffWaysToCompute(String input) {
         List<Integer> result = new ArrayList<>();
         for (int index = 0; index < input.length(); index++) {
@@ -41,4 +49,5 @@ public class _241DifferentWaysToAddParenthess {
     public void test() {
         System.out.println(diffWaysToCompute("2*3-4*5"));
     }
+
 }

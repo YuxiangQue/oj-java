@@ -1,10 +1,7 @@
-package com.placeholder;
-
-import jdk.nashorn.internal.ir.Block;
+package com.placeholder.netease2016;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.BlockingQueue;
 
 /**
  * 2016/3/22 网易实习校招Java题
@@ -13,7 +10,7 @@ import java.util.concurrent.BlockingQueue;
  * @author yuxiangque
  * @version 2016/3/22
  */
-public class Netease {
+public class Netease2016Campus {
 
     public static void main(String[] args) {
         char[] candidates = new char[]{'9', 'g', '3', '4', '3', '4', '3', '4', '3', '4', '3', '4', '3', '4', '3', '4'};

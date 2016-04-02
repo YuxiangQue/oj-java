@@ -1,4 +1,4 @@
-package com.placeholder;
+package com.placeholder.netease2016;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author yuxiangque
  * @version 2016/3/26
  */
-public class NeteaseGame {
+public class MushroomGame {
 
     public static double distance(int x1, int y1, int x2, int y2) {
         return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));

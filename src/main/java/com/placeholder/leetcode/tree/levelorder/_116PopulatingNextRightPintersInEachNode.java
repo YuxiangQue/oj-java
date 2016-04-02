@@ -1,4 +1,4 @@
-package com.placeholder.leetcode.tree;
+package com.placeholder.leetcode.tree.levelorder;
 
 import com.placeholder.common.TreeLinkNode;
 
