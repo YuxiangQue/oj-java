@@ -5,6 +5,8 @@ package com.placeholder.leetcode.dp;
  * @version 2016/2/18
  */
 public class _198HouseRobber {
+
+    // dp[i] = max(dp[i-2]+num[i], dp[i-1])
     public static int rob(int[] nums) {
         int length = nums.length;
         if (length == 0)

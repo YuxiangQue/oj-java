@@ -1,4 +1,4 @@
-package com.placeholder.hihoCoder.microsoft;
+package com.placeholder.hihoCoder.weekly;
 
 import java.util.Scanner;
 

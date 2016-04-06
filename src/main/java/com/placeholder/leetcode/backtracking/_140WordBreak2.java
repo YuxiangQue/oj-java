@@ -39,6 +39,7 @@ public class _140WordBreak2 {
         System.out.println(System.currentTimeMillis() - start);
     }
 
+    // dfs
     static class _2 {
 
         public List<String> wordBreak(String s, Set<String> wordDict) {
@@ -89,6 +90,7 @@ public class _140WordBreak2 {
         }
     }
 
+    // dfs
     static class _1 {
 
         public List<String> wordBreak(String s, Set<String> wordDict) {

@@ -6,6 +6,8 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 /**
+ * https://leetcode.com/problems/minimum-depth-of-binary-tree/
+ *
  * @author 阙宇翔
  * @version 2016/2/23
  */

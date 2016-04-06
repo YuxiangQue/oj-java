@@ -1,4 +1,4 @@
-package com.placeholder.hihoCoder.microsoft;
+package com.placeholder.hihoCoder.weekly;
 
 /**
  * @author 阙宇翔

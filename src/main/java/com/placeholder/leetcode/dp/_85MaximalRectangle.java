@@ -45,6 +45,8 @@ public class _85MaximalRectangle {
                 {'1', '1', '0', '1', '1'},
                 {'1', '0', '0', '1', '0'},
                 {'1', '1', '1', '1', '1'}}));
+
+
     }
 
     public static class On2 {

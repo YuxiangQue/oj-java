@@ -1,5 +1,8 @@
 package com.placeholder.leetcode.dp;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 /**
  * https://leetcode.com/problems/maximum-product-subarray/
  *
@@ -16,7 +19,7 @@ public class _152MaximumProductSubarray {
         return Math.min(Math.min(a, b), c);
     }
 
-    public int maxProduct(int[] nums) {
+    public static int maxProduct(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
         }
@@ -30,5 +33,10 @@ public class _152MaximumProductSubarray {
             }
         }
         return result;
+    }
+
+    @Test
+    public void test() {
+        Assert.assertEquals(6, maxProduct(new int[]{2, 3, -2, 4}));
     }
 }

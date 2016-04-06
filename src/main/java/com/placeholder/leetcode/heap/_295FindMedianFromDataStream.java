@@ -3,6 +3,12 @@ package com.placeholder.leetcode.heap;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+/**
+ * https://leetcode.com/problemset/algorithms/
+ *
+ * @author 阙宇翔
+ * @version 2016/3/21
+ */
 public class _295FindMedianFromDataStream {
     public static void main(String[] args) {
         MedianFinder mf = new MedianFinder();

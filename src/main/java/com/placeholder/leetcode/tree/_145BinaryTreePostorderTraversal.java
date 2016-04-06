@@ -12,16 +12,6 @@ import java.util.Stack;
  */
 public class _145BinaryTreePostorderTraversal {
     /**
-     * void inorder(Node *node) {
-     * if (NULl != node->left) {
-     * inorder(node->left);
-     * }
-     * if (NULL != node->right) {
-     * inorder(node->right);
-     * }
-     * do_something(node);
-     * }
-     *
      * @param root
      * @return
      */
