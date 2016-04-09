@@ -7,6 +7,7 @@ import java.util.*;
 
 /**
  * http://hihocoder.com/contest/ntest2016spring1/problem/2
+ * http://blog.csdn.net/dm_vincent/article/details/7714519
  *
  * @author yuxiangque
  * @version 2016/4/10
