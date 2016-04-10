@@ -5,6 +5,7 @@ import org.junit.Test;
 
 /**
  * http://hihocoder.com/contest/ntest2015april/problem/3
+ * http://www.newxing.com/Tech/Program/Cpp/128.html
  *
  * @author yuxiangque
  * @version 2016/4/9
