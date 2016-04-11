@@ -21,7 +21,6 @@ public class AmusingDigits {
         Assert.assertEquals(2, amusingDigits("123901370997606"));
     }
 
-
     private int amusingDigits(String digits) {
         Map<Integer, Character> lengthCharMap = new HashMap<>();
         Set<Integer> used = new HashSet<>();

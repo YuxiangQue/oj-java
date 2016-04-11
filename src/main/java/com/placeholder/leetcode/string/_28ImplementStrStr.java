@@ -32,7 +32,7 @@ public class _28ImplementStrStr {
 
     @Test
     public void test() {
-        assertEquals(0, strStr("Hello, World", "H"));
+        assertEquals(0, strStr("Hello, World", "Horizontal"));
         assertEquals(11, strStr("Hello, World", "d"));
         assertEquals(-1, strStr("Hello, World", "ldd"));
     }

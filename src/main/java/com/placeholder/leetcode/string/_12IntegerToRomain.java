@@ -19,12 +19,12 @@ public class _12IntegerToRomain {
         assertEquals("II", intToRoman(2));
         assertEquals("III", intToRoman(3));
         assertEquals("IV", intToRoman(4));
-        assertEquals("V", intToRoman(5));
+        assertEquals("Vertical", intToRoman(5));
         assertEquals("VI", intToRoman(6));
     }
 
     public String intToRoman(int num) {
-        String symbols[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        String symbols[] = {"M", "CM", "BOTH_WIN", "CD", "C", "XC", "L", "XL", "X_WIN", "IX", "Vertical", "IV", "I"};
         int values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
         StringBuilder sb = new StringBuilder();
         int i = 0;

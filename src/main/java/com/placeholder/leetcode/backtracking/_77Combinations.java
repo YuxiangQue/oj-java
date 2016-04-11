@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * https://leetcode.com/problems/subsets/
+ * https://leetcode.com/problems/combinations/
  *
  * @author 阙宇翔
  * @version 2016/2/16
