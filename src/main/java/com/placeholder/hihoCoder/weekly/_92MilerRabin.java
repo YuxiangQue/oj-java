@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Miller-Rabin素数测试
+ * http://hihocoder.com/contest/hiho92/problems 数论一·Miller-Rabin质数测试
  * http://www.cnblogs.com/vongang/archive/2012/03/15/2398626.html
  *
  * @author yuxiangque
