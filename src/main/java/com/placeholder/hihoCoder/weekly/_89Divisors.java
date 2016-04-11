@@ -1,20 +1,21 @@
 package com.placeholder.hihoCoder.weekly;
 
 
+import com.placeholder.common.Algorithms;
+
 /**
- * http://hihocoder.com/discuss/question/2857/
+ * http://hihocoder.com/discuss/question/2857/ Divisors
  *
  * @author 阙宇翔
  * @version 2016/3/14
  */
 public class _89Divisors {
 
-
     // 生成
     private int[] primes = new int[41];
     private int primeIndex = 0;
     // n = p1^n1 * p2^n2 * p3^n3 * ... * pk^nk
-    // D = (n1+1)*(n2+1)*(n3+1)* ... * (nk+1)
+    // BOTH_WIN = (n1+1)*(n2+1)*(n3+1)* ... * (nk+1)
     // 枚举质因子数量，在使得n不超过N的情况下，使得D尽可能大
     private int maxDivisors = 0;
     private int result = 0;
@@ -32,20 +33,11 @@ public class _89Divisors {
     private void generatePrimes() {
         int i = 2;
         while (primeIndex < 41) {
-            if (isPrime(i)) {
+            if (Algorithms.isPrime(i)) {
                 primes[primeIndex++] = i;
             }
             ++i;
         }
-    }
-
-    // 质数大于等于2 不能被它本身和1以外的数整除
-    private boolean isPrime(int n) {
-        for (int i = 2; i < (int) (Math.sqrt(n) + 1); ++i) {
-            if (n % i == 0)
-                return false;
-        }
-        return true;
     }
 
     private void dfs(int n, int prime, int now, int D) {
