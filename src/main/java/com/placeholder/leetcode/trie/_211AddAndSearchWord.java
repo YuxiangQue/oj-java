@@ -9,7 +9,7 @@ public class _211AddAndSearchWord {
     public static void main(String[] args) {
         WordDictionary wordDictionary = new WordDictionary();
         //wordDictionary.addWord("a");
-        //wordDictionary.search(".");
+        //wordDictionary.get(".");
         wordDictionary.addWord("bbb");
         System.out.println(wordDictionary.search(".bb"));
         System.out.println(wordDictionary.search("b.b"));

@@ -15,8 +15,8 @@ public class _208ImplementTrie {
 
     // Your Trie object will be instantiated and called as such:
     // Trie trie = new Trie();
-    // trie.insert("somestring");
-    // trie.search("key");
+    // trie.put("somestring");
+    // trie.get("key");
     public static void main(String[] args) {
         Trie trie = new Trie();
         trie.insert("something");

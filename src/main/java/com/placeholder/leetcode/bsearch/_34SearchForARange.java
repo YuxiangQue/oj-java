@@ -1,5 +1,7 @@
 package com.placeholder.leetcode.bsearch;
 
+import java.util.Arrays;
+
 /**
  * https://leetcode.com/problems/search-for-a-range/
  *
