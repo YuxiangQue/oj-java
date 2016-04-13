@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.util.Arrays;
 
 /**
+ * #BinarySearch
+ *
  * @author yuxiangque
  * @version 2016/3/24
  */

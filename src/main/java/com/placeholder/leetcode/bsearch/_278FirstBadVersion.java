@@ -2,6 +2,9 @@ package com.placeholder.leetcode.bsearch;
 
 /**
  * https://leetcode.com/problems/first-bad-version/
+ * <p>
+ * #BinarySearch
+ *
  * @author 阙宇翔
  * @version 2016/3/21
  */
@@ -25,17 +28,17 @@ public class _278FirstBadVersion {
     // https://leetcode.com/discuss/62255/o-lgn-simple-java-solution
     static class Solution extends VersionControl {
         public int firstBadVersion(int n) {
-            int lower = 1;
-            int upper = n;
-            while (lower < upper) {
-                int mid = lower + (upper - lower) / 2;  // avoid possible overflow
+            int left = 1;
+            int right = n;
+            while (left < right) {
+                int mid = left + (right - left) / 2;  // avoid possible overflow
                 if (isBadVersion(mid)) {
-                    upper = mid;
+                    right = mid;
                 } else {
-                    lower = mid + 1;
+                    left = mid + 1;
                 }
             }
-            return lower;
+            return left;
         }
     }
 }

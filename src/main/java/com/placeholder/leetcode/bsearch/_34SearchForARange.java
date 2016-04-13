@@ -1,15 +1,14 @@
 package com.placeholder.leetcode.bsearch;
 
-import java.util.Arrays;
-
 /**
  * https://leetcode.com/problems/search-for-a-range/
+ * <p>
+ * #BinarySearch
  *
  * @author yuxiangque
  * @version 2016/3/22
  */
 public class _34SearchForARange {
-
 
     public static void main(String[] args) {
         searchRange2(new int[]{5, 7, 7, 8, 8, 10}, 8);
@@ -40,42 +39,42 @@ public class _34SearchForARange {
     }
 
     public static int[] searchRange2(int[] nums, int target) {
-        int lower = 0;
-        int upper = nums.length - 1;
-        int rangeLower;
-        int rangeUpper;
+        int left = 0;
+        int right = nums.length - 1;
+        int rangeLeft;
+        int rangeRight;
         // 找左边界
-        while (lower < upper) {
-            int middle = lower + (upper - lower) / 2;
+        while (left < right) {
+            int middle = left + (right - left) / 2;
             if (nums[middle] < target) {
-                lower = middle + 1;
+                left = middle + 1;
             } else if (nums[middle] > target) {
-                upper = middle - 1;
+                right = middle - 1;
             } else {
-                upper = middle;
+                right = middle;
             }
         }
-        if (nums[lower] != target)
+        if (nums[left] != target)
             return new int[]{-1, -1};
-        rangeLower = lower;
+        rangeLeft = left;
 
         // 下界不变
-        upper = nums.length - 1;
+        right = nums.length - 1;
         // 找右边界
-        while (lower < upper) {
-            int middle = lower + (upper - lower) / 2 + 1; // damn clever
+        while (left < right) {
+            int middle = left + (right - left) / 2 + 1; // damn clever
             if (nums[middle] < target) {
-                lower = middle + 1;
+                left = middle + 1;
             } else if (nums[middle] > target) {
-                upper = middle - 1;
+                right = middle - 1;
             } else {
-                lower = middle;
+                left = middle;
             }
         }
-        if (nums[lower] != target)
+        if (nums[left] != target)
             return new int[]{-1, -1};
-        rangeUpper = lower;
+        rangeRight = left;
 
-        return new int[]{rangeLower, rangeUpper};
+        return new int[]{rangeLeft, rangeRight};
     }
 }

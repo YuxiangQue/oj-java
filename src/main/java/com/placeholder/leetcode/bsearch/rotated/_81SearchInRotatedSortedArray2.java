@@ -1,4 +1,4 @@
-package com.placeholder.leetcode.bsearch;
+package com.placeholder.leetcode.bsearch.rotated;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -7,11 +7,13 @@ import java.util.Arrays;
 
 /**
  * TODO
+ * #Array
+ * #BinarySearch
  *
  * @author yuxiangque
  * @version 2016/3/22
  */
-public class _81SearchInRotatedSortedArray {
+public class _81SearchInRotatedSortedArray2 {
 
 
     // 顺序搜索
@@ -26,25 +28,25 @@ public class _81SearchInRotatedSortedArray {
 
     public static int findMinIndex(int[] nums) {
         int n = nums.length;
-        int lower = 0;
-        int upper = n - 1;
-        int mid = lower;
-        while (nums[lower] >= nums[upper]) {
-            if (upper == lower + 1) {
-                mid = upper;
+        int left = 0;
+        int right = n - 1;
+        int middle = left;
+        while (nums[left] >= nums[right]) {
+            if (right == left + 1) {
+                middle = right;
                 break;
             }
-            mid = lower + (upper - lower) / 2;
-            if (nums[mid] == nums[lower] && nums[mid] == nums[upper]) {
-                return findMinSeq(nums, lower, upper);
+            middle = left + (right - left) / 2;
+            if (nums[middle] == nums[left] && nums[middle] == nums[right]) {
+                return findMinSeq(nums, left, right);
             }
-            if (nums[mid] >= nums[lower]) {
-                lower = mid;
-            } else if (nums[mid] < nums[lower]) {
-                upper = mid;
+            if (nums[middle] >= nums[left]) {
+                left = middle;
+            } else if (nums[middle] < nums[left]) {
+                right = middle;
             }
         }
-        return mid;
+        return middle;
     }
 
     public static boolean search(int[] nums, int target) {

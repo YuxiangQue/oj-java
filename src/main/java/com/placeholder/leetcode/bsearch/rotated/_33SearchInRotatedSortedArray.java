@@ -1,4 +1,4 @@
-package com.placeholder.leetcode.bsearch;
+package com.placeholder.leetcode.bsearch.rotated;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.util.Arrays;
 
 /**
+ * #BinarySearch
+ *
  * @author yuxiangque
  * @version 2016/3/25
  */
@@ -13,22 +15,22 @@ public class _33SearchInRotatedSortedArray {
 
     public static int findMinIndex(int[] nums) {
         int n = nums.length;
-        int lower = 0;
-        int upper = n - 1;
-        int mid = lower;
-        while (nums[lower] >= nums[upper]) {
-            if (upper == lower + 1) {
-                mid = upper;
+        int left = 0;
+        int right = n - 1;
+        while (left <= right) {
+            int middle = left + (right - left) / 2;
+            if (nums[left] <= nums[right]) {
                 break;
             }
-            mid = lower + (upper - lower) / 2;
-            if (nums[mid] >= nums[lower]) {
-                lower = mid;
-            } else if (nums[mid] < nums[lower]) {
-                upper = mid;
+            if (nums[middle] > nums[left]) {
+                left = middle + 1;
+            } else if (nums[middle] < nums[left]) {
+                right = middle;
+            } else {
+                left = middle + 1;
             }
         }
-        return mid;
+        return left;
     }
 
     public static int search(int[] nums, int target) {
@@ -48,15 +50,14 @@ public class _33SearchInRotatedSortedArray {
 
     @Test
     public void test() {
-        // 无重复
         Assert.assertEquals(-1, search(new int[]{1}, 0));
         Assert.assertEquals(-1, search(new int[]{1, 1}, 0));
-        Assert.assertEquals(5, search(new int[]{4, 5, 6, 7, 1, 2}, 1));
-        Assert.assertEquals(4, search(new int[]{4, 5, 6, 7, 1, 2}, 2));
+        Assert.assertEquals(4, search(new int[]{4, 5, 6, 7, 1, 2}, 1));
+        Assert.assertEquals(5, search(new int[]{4, 5, 6, 7, 1, 2}, 2));
         Assert.assertEquals(-1, search(new int[]{4, 5, 6, 7, 1, 2}, 3));
-        Assert.assertEquals(true, search(new int[]{4, 5, 6, 7, 1, 2}, 4));
-        Assert.assertEquals(true, search(new int[]{4, 5, 6, 7, 1, 2}, 5));
-        Assert.assertEquals(true, search(new int[]{4, 5, 6, 7, 1, 2}, 6));
-        Assert.assertEquals(true, search(new int[]{4, 5, 6, 7, 1, 2}, 7));
+        Assert.assertEquals(0, search(new int[]{4, 5, 6, 7, 1, 2}, 4));
+        Assert.assertEquals(1, search(new int[]{4, 5, 6, 7, 1, 2}, 5));
+        Assert.assertEquals(2, search(new int[]{4, 5, 6, 7, 1, 2}, 6));
+        Assert.assertEquals(3, search(new int[]{4, 5, 6, 7, 1, 2}, 7));
     }
 }
