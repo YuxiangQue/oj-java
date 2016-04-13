@@ -14,6 +14,7 @@ public class _78Subsets {
 
     public static void main(String[] args) {
         List<List<Integer>> result = subsets(new int[]{1, 2, 3});
+        System.out.println(result);
         return;
     }
 
@@ -44,12 +45,12 @@ public class _78Subsets {
             return;
         }
 
-        // add candidate
+        // the candidate
         item.add(candidates[index]);
         dfs(candidates, index + 1, item, result);
         item.remove(item.size() - 1);
 
-        // remove candidate
+        // skip candidate
         dfs(candidates, index + 1, item, result);
     }
 }

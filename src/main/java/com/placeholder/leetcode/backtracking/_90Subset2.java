@@ -14,6 +14,7 @@ import java.util.List;
 public class _90Subset2 {
     public static void main(String[] args) {
         List<List<Integer>> result = subsetsWithDup(new int[]{1, 2, 2});
+        System.out.println(result);
         return;
     }
 
