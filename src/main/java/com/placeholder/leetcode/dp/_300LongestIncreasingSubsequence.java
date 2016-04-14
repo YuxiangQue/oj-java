@@ -1,16 +1,19 @@
 package com.placeholder.leetcode.dp;
 
 /**
+ * #dp
+ * #BinarySearch
  * https://leetcode.com/problems/longest-increasing-subsequence/
+ * https://www.zhihu.com/question/22001141
+ * http://yzmduncan.iteye.com/blog/1546503
  *
  * @author 阙宇翔
  * @version 2016/3/14
  */
 public class _300LongestIncreasingSubsequence {
 
-    // dp[i] = max{dp[j]+1}, 1<=j<i,a[j]<a[i]
-    // https://www.zhihu.com/question/22001141
-    // http://yzmduncan.iteye.com/blog/1546503
+    // 设dp[i]表示以i为结尾的最长递增子序列的长度
+    // 状态转移方程为 dp[i] = max{dp[j]+1}, 1<=j<i,a[j]<a[i]
     public static int lengthOfLIS(int[] nums) {
         if (nums.length == 0)
             return 0;
@@ -23,7 +26,7 @@ public class _300LongestIncreasingSubsequence {
         for (int i = 1; i < len; i++) {
             dp[i] = 1;
             for (int j = 0; j < i; j++) {
-                if (nums[i] > nums[j]) {
+                if (nums[j] < nums[i]) {
                     if (dp[i] < dp[j] + 1) {
                         dp[i] = dp[j] + 1;
                     }
