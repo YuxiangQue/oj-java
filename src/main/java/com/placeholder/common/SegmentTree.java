@@ -5,21 +5,23 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
+ * http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
+ *
  * @author yuxiangque
  * @version 2016/4/14
  */
 public class SegmentTree {
 
-    int[] st;   // segment tree
+    int[] tree;   // segment tree
     int[] arr;  // array of numbers
 
-    public SegmentTree(int arr[]) {
+    public SegmentTree(int[] arr) {
         int n = arr.length;
         this.arr = arr;
         int height = (int) (Math.ceil(Math.log(n) / Math.log(2)));
         int maxSize = 2 * (int) Math.pow(2, height) - 1;
-        st = new int[maxSize];
-        buildSegmentTree(arr, 0, arr.length - 1, 0);
+        tree = new int[maxSize];
+        build(arr, 0, arr.length - 1, 0);
     }
 
     private static int middle(int left, int right) {
@@ -35,46 +37,41 @@ public class SegmentTree {
         update(0, arr.length - 1, index, diff, 0);
     }
 
-    public int sumRange(int i, int j) {
-        // 0 <= i <= j < arr.length
+    public int sum(int i, int j) {
         if (i < 0 || j > arr.length - 1 || i > j) {
             return 0;
         }
-        return sumRange(0, arr.length - 1, i, j, 0);
+        return sum(0, arr.length - 1, i, j, 0);
     }
 
-    private int buildSegmentTree(int arr[], int left, int right, int root) {
-        if (left == right) {
-            st[root] = arr[left];
-            return arr[left];
+    private int build(int a[], int tl, int tr, int v) {
+        if (tl == tr) {
+            tree[v] = a[tl];
+            return a[tl];
         }
-        int middle = middle(left, right);
-        st[root] = buildSegmentTree(arr, left, middle, root * 2 + 1) +
-                buildSegmentTree(arr, middle + 1, right, root * 2 + 2);
-        return st[root];
+        int tm = middle(tl, tr);
+        tree[v] = build(a, tl, tm, v * 2 + 1) + build(a, tm + 1, tr, v * 2 + 2);
+        return tree[v];
     }
 
-    private int sumRange(int left, int right, int i, int j, int root) {
-        if (i <= left && j >= right)
-            return st[root];
-
-        if (right < i || left > j)
+    private int sum(int tl, int tr, int l, int r, int v) {
+        if (l <= tl && r >= tr)
+            return tree[v];
+        if (tr < l || tl > r)
             return 0;
-
-        int middle = middle(left, right);
-        return sumRange(left, middle, i, j, 2 * root + 1) +
-                sumRange(middle + 1, right, i, j, 2 * root + 2);
+        int tm = middle(tl, tr);
+        return sum(tl, tm, l, r, 2 * v + 1) + sum(tm + 1, tr, l, r, 2 * v + 2);
     }
 
-    private void update(int left, int right, int index, int diff, int root) {
-        if (index < left || index > right)
-            return;
-
-        st[root] = st[root] + diff;
-        if (right != left) {
-            int mid = middle(left, right);
-            update(left, mid, index, diff, 2 * root + 1);
-            update(mid + 1, right, index, diff, 2 * root + 2);
+    private void update(int tl, int tr, int pos, int newValue, int v) {
+        if (tl == tr) {
+            tree[v] = newValue;
+        } else {
+            int tm = middle(tl, tr);
+            if (pos < tm)
+                update(tl, tm, pos, newValue, 2 * v + 1);
+            else
+                update(tm + 1, tr, pos, newValue, 2 * v + 2);
         }
     }
 
@@ -84,9 +81,9 @@ public class SegmentTree {
         public void test() {
             int arr[] = {1, 3, 5, 7, 9, 11};
             SegmentTree tree = new SegmentTree(arr);
-            Assert.assertEquals(15, tree.sumRange(1, 3));
+            Assert.assertEquals(15, tree.sum(1, 3));
             tree.update(1, 10);
-            Assert.assertEquals(22, tree.sumRange(1, 3));
+            Assert.assertEquals(22, tree.sum(1, 3));
         }
     }
 }
