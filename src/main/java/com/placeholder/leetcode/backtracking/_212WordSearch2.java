@@ -1,6 +1,6 @@
 package com.placeholder.leetcode.backtracking;
 
-import com.placeholder.common.AlphaTrie;
+import com.placeholder.common.trie.AlphaTrie;
 
 import java.util.*;
 

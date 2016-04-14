@@ -1,6 +1,6 @@
 package com.placeholder.leetcode.trie;
 
-import com.placeholder.common.AlphaTrie;
+import com.placeholder.common.trie.AlphaTrie;
 
 /**
  * #Design

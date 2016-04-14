@@ -1,4 +1,4 @@
-package com.placeholder.common;
+package com.placeholder.common.trie;
 
 import org.junit.Assert;
 import org.junit.Test;

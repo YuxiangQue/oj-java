@@ -1,4 +1,4 @@
-package com.placeholder.common;
+package com.placeholder.common.trie;
 
 /**
  * @author 阙宇翔

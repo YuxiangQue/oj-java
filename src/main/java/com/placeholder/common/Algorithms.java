@@ -29,7 +29,7 @@ public class Algorithms {
             while (right >= lower && arr[right] > arr[pivot]) {
                 --right;
             }
-            if (left >= right)  // arr[right] <= arr[pivot]
+            if (left >= right)  // arr[b] <= arr[pivot]
                 break;
             int temp = arr[left];
             arr[left] = arr[right];
