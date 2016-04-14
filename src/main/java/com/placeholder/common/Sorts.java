@@ -96,7 +96,7 @@ public class Sorts {
         int left = begin + 1;
         int right = end;
         for (; ; ) {
-            for (; left < end && arr[left].compareTo(pivotValue) < 0; ++left) {
+            for (; left <= end && arr[left].compareTo(pivotValue) < 0; ++left) {
             }
 
             //循环结束时保证left指向小于等于pivot的数，right指向大于pivot的数
@@ -125,10 +125,10 @@ public class Sorts {
         int left = begin + 1;
         int right = end;
         for (; ; ) {
-            for (; left < end && arr[left].compareTo(pivotValue) < 0; ++left) {
+            for (; left <= end && arr[left].compareTo(pivotValue) < 0; ++left) {
             }
 
-            //循环结束时保证left指向小于等于pivot的数，right指向大于pivot的数
+            // 循环结束时保证left指向小于等于pivot的数，right指向大于pivot的数
             for (; right > begin && arr[right].compareTo(pivotValue) >= 0; --right) {
             }
             if (left >= right)
