@@ -30,14 +30,13 @@ public class _215KthLargestElementInAnArray {
                 return nums[begin];
             }
         }
-        int pivot = begin;
         int left = begin + 1;
         int right = end;
         while (true) {
-            while (left < end && nums[left].compareTo(nums[pivot]) < 0) {
+            while (left < end && nums[left].compareTo(nums[begin]) < 0) {
                 ++left;
             }
-            while (right > begin && nums[right].compareTo(nums[pivot]) > 0) {
+            while (right > begin && nums[right].compareTo(nums[begin]) > 0) {
                 --right;
             }
             if (left > right)
@@ -49,8 +48,8 @@ public class _215KthLargestElementInAnArray {
             --right;
         }
         T tmp = nums[right];
-        nums[right] = nums[pivot];
-        nums[pivot] = tmp;
+        nums[right] = nums[begin];
+        nums[begin] = tmp;
 
         if (k - 1 == right) {
             return nums[right];
@@ -81,9 +80,7 @@ public class _215KthLargestElementInAnArray {
      */
     public <T extends Comparable<T>> T findKthLargestHeap(T[] nums, int k) {
         PriorityQueue<T> pq = new PriorityQueue<>();
-        for (int i = 0; i < k; i++) {
-            pq.add(nums[i]);
-        }
+        pq.addAll(Arrays.asList(nums).subList(0, k));
         for (int i = k; i < nums.length; ++i) {
             if (pq.peek().compareTo(nums[i]) < 0) {
                 pq.poll();

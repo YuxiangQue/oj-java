@@ -22,7 +22,7 @@ public class _10ReularExptressionMatching {
             boolean matchDot = pattern.charAt(patternIndex) == '.' && strIndex < str.length();
             if (matchChar || matchDot)
                 return dfs(str, strIndex + 1, pattern, patternIndex + 1);
-        } else {
+        } else {  // *
             boolean matchChar = pattern.charAt(patternIndex) == str.charAt(strIndex);
             boolean matchDot = pattern.charAt(patternIndex) == '.' && strIndex < str.length();
             if (matchChar || matchDot) {

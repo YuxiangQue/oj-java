@@ -1,6 +1,6 @@
 package com.placeholder.leetcode.trie;
 
-import com.placeholder.common.Trie;
+import com.placeholder.common.AlphaTrie;
 
 /**
  * #Design
@@ -13,16 +13,16 @@ import com.placeholder.common.Trie;
 public class _208ImplementTrie {
 
 
-    // Your Trie object will be instantiated and called as such:
-    // Trie trie = new Trie();
+    // Your AlphaTrie object will be instantiated and called as such:
+    // AlphaTrie trie = new AlphaTrie();
     // trie.put("somestring");
     // trie.get("key");
     public static void main(String[] args) {
-        Trie trie = new Trie();
-        trie.insert("something");
-        trie.insert("some");
-        System.out.println(trie.search("some"));
-        System.out.println(trie.search("somet"));
-        System.out.println(trie.startsWith("somet"));
+        AlphaTrie alphaTrie = new AlphaTrie();
+        alphaTrie.insert("something");
+        alphaTrie.insert("some");
+        System.out.println(alphaTrie.search("some"));
+        System.out.println(alphaTrie.search("somet"));
+        System.out.println(alphaTrie.startsWith("somet"));
     }
 }

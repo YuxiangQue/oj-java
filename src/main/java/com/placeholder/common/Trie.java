@@ -1,58 +1,83 @@
 package com.placeholder.common;
 
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- * @author 阙宇翔
- * @version 2016/3/21
+ * @author yuxiangque
+ * @version 2016/4/14
  */
 public class Trie {
-
-    private TrieNode root;
+    private Node root;
 
     public Trie() {
-        root = new TrieNode();
+        root = new Node();
     }
 
-    // Inserts a word into the trie.
+    // Inserts a word into the alphaTrie.
     public void insert(String word) {
-        TrieNode node = root;
+        Node node = root;
         for (int i = 0; i < word.length(); ++i) {
-            int index = word.charAt(i) - 'a';
-            if (node.children[index] == null)
-                node.children[index] = new TrieNode();
-            node = node.children[index];
+            char key = word.charAt(i);
+            if (node.children == null) {
+                node.children = new HashMap<>();
+            }
+            Node child = node.children.get(key);
+            if (child == null) {
+                child = new Node();
+                node.children.put(key, child);
+            }
+            node = child;
         }
         node.count += 1;
     }
 
-    // Returns if the word is in the trie.
+    // Returns if the word is in the alphaTrie.
     public boolean search(String word) {
-        TrieNode node = root;
+        Node node = root;
         for (int i = 0; i < word.length(); ++i) {
-            int index = word.charAt(i) - 'a';
-            if (node.children[index] == null)
+            if (node.children == null)
                 return false;
-            node = node.children[index];
+            Node child = node.children.get(word.charAt(i));
+            if (child == null)
+                return false;
+            node = child;
         }
         return node.count > 0;
     }
 
-    // Returns if there is any word in the trie
+    // Returns if there is any word in the alphaTrie
     // that starts with the given prefix.
     public boolean startsWith(String prefix) {
-        TrieNode node = root;
+        Node node = root;
         for (int i = 0; i < prefix.length(); ++i) {
-            int index = prefix.charAt(i) - 'a';
-            if (node.children[index] == null)
+            if (node.children == null)
                 return false;
-            node = node.children[index];
+            Node child = node.children.get(prefix.charAt(i));
+            if (child == null)
+                return false;
+            node = child;
         }
         return true;
     }
 
-    static class TrieNode {
-        // Initialize your data structure here.
-
-        TrieNode[] children = new TrieNode[26]; // 各个子节点
+    private static class Node {
+        Map<Character, Node> children; // 各个子节点
         int count = 0;
+    }
+
+    public static class TrieTest {
+        @Test
+        public void test() {
+            Trie trie = new Trie();
+            trie.insert("HELLO");
+            Assert.assertEquals(true, trie.startsWith("H"));
+            Assert.assertEquals(true, trie.startsWith("HELLO"));
+            Assert.assertEquals(false, trie.startsWith("HELLOH"));
+            trie.insert("WORLD");
+        }
     }
 }

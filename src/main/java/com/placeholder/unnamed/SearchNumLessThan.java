@@ -1,4 +1,4 @@
-package com.placeholder;
+package com.placeholder.unnamed;
 
 import org.junit.Assert;
 import org.junit.Test;

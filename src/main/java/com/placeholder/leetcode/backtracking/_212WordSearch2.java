@@ -1,6 +1,6 @@
 package com.placeholder.leetcode.backtracking;
 
-import com.placeholder.common.Trie;
+import com.placeholder.common.AlphaTrie;
 
 import java.util.*;
 
@@ -26,7 +26,7 @@ public class _212WordSearch2 {
     }
 
     static class WordSearch2 {
-        Trie trie;
+        AlphaTrie alphaTrie;
         char[][] board;
         int rows;
         int cols;
@@ -37,9 +37,9 @@ public class _212WordSearch2 {
             cols = board[0].length;
             this.board = board;
             found = new HashSet<>();
-            trie = new Trie();
+            alphaTrie = new AlphaTrie();
             for (String word : words) {
-                trie.insert(word);
+                alphaTrie.insert(word);
             }
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < rows; ++i) {
@@ -65,10 +65,10 @@ public class _212WordSearch2 {
             char tmp = board[row][col];
             sb.append(tmp);
             String word = sb.toString();
-            if (!trie.startsWith(word)) {
+            if (!alphaTrie.startsWith(word)) {
                 sb.deleteCharAt(sb.length() - 1);
                 return false;
-            } else if (trie.search(word)) {
+            } else if (alphaTrie.search(word)) {
                 found.add(word);
             }
             board[row][col] = '#';  // visited

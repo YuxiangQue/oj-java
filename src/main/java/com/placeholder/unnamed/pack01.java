@@ -1,4 +1,4 @@
-package com.placeholder.pack;
+package com.placeholder.unnamed;
 
 /**
  * http://love-oriented.com/pack/
@@ -7,7 +7,7 @@ package com.placeholder.pack;
  * @author yuxiangque
  * @version 2016/4/2
  */
-public class pack01 {
+public class Pack01 {
 
     // if j > wi then
     //  m[i][j] = max(m[i+1][j], m[i+1][j-wi] + vi)

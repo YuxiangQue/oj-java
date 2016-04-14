@@ -1,6 +1,10 @@
 package com.placeholder.leetcode.bitmanipulation;
 
 /**
+ * https://leetcode.com/problems/single-number/
+ * #HashTable
+ * #BitManipulation
+ *
  * @author 阙宇翔
  * @version 2016/2/18
  */
