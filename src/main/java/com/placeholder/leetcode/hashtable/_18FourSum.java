@@ -5,6 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * #Array
+ * #HashTable
+ * #TwoPointers
+ *
  * @author 阙宇翔
  * @version 2016/2/16
  */
@@ -17,24 +21,24 @@ public class _18FourSum {
             for (int j = i + 1; j < nums.length; ++j) {
                 int key = target - nums[i] - nums[j];
                 // 搜索
-                int low = j + 1;
-                int high = nums.length - 1;
+                int left = j + 1;
+                int right = nums.length - 1;
 
-                while (low < high) {
-                    if (nums[low] + nums[high] < key)
-                        ++low;
-                    else if (nums[low] + nums[high] > key)
-                        --high;
+                while (left < right) {
+                    if (nums[left] + nums[right] < key)
+                        ++left;
+                    else if (nums[left] + nums[right] > key)
+                        --right;
                     else {
-                        result.add(Arrays.asList(nums[i], nums[j], nums[low], nums[high]));
+                        result.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
                         // 跳过相同数
-                        while (low < high && nums[low] == nums[low + 1])
-                            ++low;
+                        while (left < right && nums[left] == nums[left + 1])
+                            ++left;
                         // 跳过相同数
-                        while (low < high && nums[high] == nums[high - 1])
-                            --high;
-                        ++low;
-                        --high;
+                        while (left < right && nums[right] == nums[right - 1])
+                            --right;
+                        ++left;
+                        --right;
                     }
                 }
                 // 跳过相同数
