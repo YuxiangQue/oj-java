@@ -1,5 +1,8 @@
 package com.placeholder.leetcode.math;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 /**
  * https://leetcode.com/problems/ugly-number-ii/
  *
@@ -7,6 +10,14 @@ package com.placeholder.leetcode.math;
  * @version 2016/3/26
  */
 public class _264UglyNumber2 {
+
+
+    @Test
+    public void test() {
+        Assert.assertEquals(1, nthUglyNumber(1));
+        Assert.assertEquals(2, nthUglyNumber(2));
+        Assert.assertEquals(12, nthUglyNumber(10));
+    }
 
     public int nthUglyNumber(int n) {
         int[] primes = new int[]{2, 3, 5};
@@ -22,12 +33,15 @@ public class _264UglyNumber2 {
             int minNextUglyNumber = uglyNumbers[multiply[0]] * primes[0];
             for (int i = 1; i < primes.length; i++) {
                 int nextUglyNumber = uglyNumbers[multiply[i]] * primes[i];
-                minNextUglyNumber = nextUglyNumber < minNextUglyNumber ? nextUglyNumber : minNextUglyNumber;
+                if (minNextUglyNumber > nextUglyNumber) {
+                    minNextUglyNumber = nextUglyNumber;
+                }
             }
             uglyNumbers[nextUglyIndex] = minNextUglyNumber;
             for (int i = 0; i < primes.length; i++) {
-                while (uglyNumbers[multiply[i]] * primes[i] <= minNextUglyNumber)
+                while (uglyNumbers[multiply[i]] * primes[i] <= minNextUglyNumber) {
                     ++multiply[i];
+                }
             }
             ++nextUglyIndex;
         }
