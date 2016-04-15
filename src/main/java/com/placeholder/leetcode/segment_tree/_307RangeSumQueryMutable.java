@@ -1,12 +1,12 @@
 package com.placeholder.leetcode.segment_tree;
 
-import com.placeholder.common.SegmentTree;
+import com.placeholder.common.segment_tree.SumSegmentTree;
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
  * https://leetcode.com/problems/range-sum-query-mutable/
- * #SegmentTree
+ * #CoverSegmentTree
  * #BinaryIndexedTree
  *
  * @author yuxiangque
@@ -30,25 +30,25 @@ public class _307RangeSumQueryMutable {
 
     public class NumArray {
 
-        SegmentTree segmentTree;
+        SumSegmentTree sumSegmentTree;
 
         public NumArray(int[] nums) {
             if (nums == null || nums.length == 0)
                 return;
-            segmentTree = new SegmentTree(nums);
+            sumSegmentTree = new SumSegmentTree(nums);
         }
 
         void update(int i, int val) {
-            if (segmentTree == null)
+            if (sumSegmentTree == null)
                 return;
-            segmentTree.update(i, val);
+            sumSegmentTree.update(i, val);
         }
 
         // [i,j]
         public int sumRange(int i, int j) {
-            if (segmentTree == null)
+            if (sumSegmentTree == null)
                 return 0;
-            return segmentTree.sum(i, j);
+            return sumSegmentTree.sum(i, j);
         }
     }
 }
