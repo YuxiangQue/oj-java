@@ -11,23 +11,23 @@ public class _19RemoveNthNodeFromEndOfList {
         if (head == null) {
             return null;
         }
-        ListNode p = head;
-        ListNode q = head;
-        ListNode pprev = null;
+        ListNode slowPrev = null;
+        ListNode slow = head;
+        ListNode fast = head;
         while (n > 0) {
-            q = q.next;
+            fast = fast.next;
             --n;
         }
-        while (q != null) {
-            pprev = p;
-            p = p.next;
-            q = q.next;
+        while (fast != null) {
+            slowPrev = slow;
+            slow = slow.next;
+            fast = fast.next;
         }
         // p == head
-        if (pprev == null) {
+        if (slowPrev == null) {
             head = head.next;
         } else {
-            pprev.next = p.next;
+            slowPrev.next = slow.next;
         }
         return head;
     }

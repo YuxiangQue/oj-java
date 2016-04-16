@@ -8,15 +8,15 @@ import com.placeholder.common.ListNode;
  */
 public class _206ReverseLinkedList {
     ListNode reverseList(ListNode head) {
-        ListNode prev = null;
-        ListNode p = head;
-        ListNode next = null;
-        while (p != null) {
-            next = p.next;
-            p.next = prev;
-            prev = p;
-            p = next;
+        if (head == null)
+            return null;
+        ListNode p = head;   // p is previous node of the current to be inserted before head
+        while (p.next != null) {
+            ListNode tmp = p.next;
+            p.next = tmp.next;
+            tmp.next = head;
+            head = tmp;
         }
-        return prev;
+        return head;
     }
 }
