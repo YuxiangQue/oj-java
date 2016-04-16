@@ -1,6 +1,8 @@
 package com.placeholder.leetcode.math;
 
 /**
+ * https://leetcode.com/problems/add-digits/
+ *
  * @author 阙宇翔
  * @version 2016/2/18
  */
@@ -11,12 +13,9 @@ public class _258AddDigits {
         System.out.println(new _258AddDigits().addDigits(19));
     }
 
-    /**
-     * https://leetcode.com/problems/add-digits/
-     */
     public int addDigits(int num) {
         while (true) {
-            String numStr = ("" + num);
+            String numStr = "" + num;
             num = 0;
             int len = numStr.length();
             for (int i = 0; i < len; ++i) {
