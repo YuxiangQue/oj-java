@@ -1,7 +1,7 @@
 package com.placeholder.leetcode.dp;
 
 /**
- * #dp
+ * #dfs
  * #BinarySearch
  * https://leetcode.com/problems/longest-increasing-subsequence/
  * https://www.zhihu.com/question/22001141
@@ -13,7 +13,7 @@ package com.placeholder.leetcode.dp;
 public class _300LongestIncreasingSubsequence {
 
     // 设dp[i]表示以i为结尾的最长递增子序列的长度
-    // 状态转移方程为 dp[i] = max{dp[j]+1}, 1<=j<i,a[j]<a[i]
+    // 状态转移方程为 dfs[i] = max{dfs[j]+1}, 1<=j<i,a[j]<a[i]
     public static int lengthOfLIS(int[] nums) {
         if (nums.length == 0)
             return 0;

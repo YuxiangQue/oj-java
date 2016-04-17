@@ -16,8 +16,8 @@ import java.util.Map;
 public class _337HouseRobber2 {
 
 
-    // dp[root] = money[root] + dp[root.left.left] + dp[root.left.right] + dp[root.right.left] + dp[root.right.right]
-    // dp[root] = dp[root.left] + dp[root.right]
+    // dfs[root] = money[root] + dfs[root.left.left] + dfs[root.left.right] + dfs[root.right.left] + dfs[root.right.right]
+    // dfs[root] = dfs[root.left] + dfs[root.right]
     public static int rob(TreeNode root) {
         Map<TreeNode, Integer> cache = new HashMap<>();
         return dp(root, cache);

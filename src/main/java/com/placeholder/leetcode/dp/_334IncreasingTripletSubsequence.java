@@ -5,7 +5,7 @@ import org.junit.Test;
 
 /**
  * https://leetcode.com/problems/increasing-triplet-subsequence/
- * #dp
+ * #dfs
  * #BinarySearch
  *
  * @author yuxiangque
@@ -22,7 +22,7 @@ public class _334IncreasingTripletSubsequence {
     }
 
 
-    // dp[i] = max{dp[j]+1} s.t.  0<=j<i, a[j] < a[i]
+    // dfs[i] = max{dfs[j]+1} s.t.  0<=j<i, a[j] < a[i]
     public boolean increasingTriplet(int[] nums) {
         int n = nums.length;
         int[] dp = new int[n];

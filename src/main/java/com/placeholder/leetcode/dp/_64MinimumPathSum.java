@@ -8,7 +8,7 @@ import java.util.List;
  * @version 2016/3/14
  */
 public class _64MinimumPathSum {
-    // dp[i,j] = min(dp[i-1,j],dp[i,j-1])+grid[i,j]
+    // dfs[i,j] = min(dfs[i-1,j],dfs[i,j-1])+grid[i,j]
     public int minPathSum(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
