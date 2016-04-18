@@ -33,7 +33,7 @@ public class _215KthLargestElementInAnArray {
         int left = begin + 1;
         int right = end;
         while (true) {
-            while (left < end && nums[left].compareTo(nums[begin]) < 0) {
+            while (left <= end && nums[left].compareTo(nums[begin]) < 0) {
                 ++left;
             }
             while (right > begin && nums[right].compareTo(nums[begin]) > 0) {

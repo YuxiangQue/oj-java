@@ -11,9 +11,29 @@ import org.junit.Test;
  */
 public class _287FindTheDuplicateNumber {
 
-    // TODO
-    public int findDuplicate(int[] nums) {
-        return 0;
+    public static int countLessOrEqualThan(int[] nums, int k) {
+        int counter = 0;
+        for (int num : nums) {
+            if (num <= k)
+                ++counter;
+        }
+        return counter;
+    }
+
+    // bsearch
+    public static int findDuplicate(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int middle = left + (right - left) / 2;
+            int count = countLessOrEqualThan(nums, middle);
+            if (count <= middle) {
+                left = middle + 1;
+            } else { // count > middle
+                right = middle;
+            }
+        }
+        return left;
     }
 
     @Test
