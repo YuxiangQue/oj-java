@@ -20,12 +20,12 @@ public class _226ImplementQueueUsingStacks {
     }
 
 
-    // Push element x to the back of queue.
+    // Push element x to the back of stack.
     void push(int x) {
         pushStack.push(x);
     }
 
-    // Removes the element from in front of queue.
+    // Removes the element from in front of stack.
     void pop() {
         if (!popStack.empty()) {
             popStack.pop();
@@ -45,7 +45,7 @@ public class _226ImplementQueueUsingStacks {
         }
     }
 
-    // Return whether the queue is empty.
+    // Return whether the stack is empty.
     boolean empty() {
         return pushStack.empty() && popStack.empty();
     }
