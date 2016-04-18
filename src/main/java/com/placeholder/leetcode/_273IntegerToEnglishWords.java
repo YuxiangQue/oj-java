@@ -10,27 +10,6 @@ import org.junit.Test;
  */
 public class _273IntegerToEnglishWords {
 
-    @Test
-    public void test() {
-        System.out.println(numberToWords(113_123_523));
-        System.out.println(numberToWords(1_234_567_891));
-    }
-
-    public String numberToWords(int num) {
-        if (num == 0)
-            return "Zero";
-        int i = 0;
-        String words = "";
-        while (num > 0) {
-            if (num % 1000 != 0) {
-                words = helper(num % 1000) + thousands[i] + " " + words;
-            }
-            num /= 1000;
-            ++i;
-        }
-        return words.trim();
-    }
-
     String[] lessThan20 = {
             "",
             "One",
@@ -53,7 +32,6 @@ public class _273IntegerToEnglishWords {
             "Eighteen",
             "Nineteen"
     };
-
     String[] tens = {
             "",
             "Ten",
@@ -66,6 +44,18 @@ public class _273IntegerToEnglishWords {
             "Eighty",
             "Ninety"
     };
+    String[] thousands = {
+            "",
+            "Thousand",
+            "Million",
+            "Billion"
+    };
+
+    @Test
+    public void test() {
+        System.out.println(numberToWords(113_123_523));
+        System.out.println(numberToWords(1_234_567_891));
+    }
 
     public String numberToWords(int num) {
         if (num == 0)
@@ -81,13 +71,6 @@ public class _273IntegerToEnglishWords {
         }
         return words.trim();
     }
-
-    String[] thousands = {
-            "",
-            "Thousand",
-            "Million",
-            "Billion"
-    };
 
     private String helper(int num) {
         if (num == 0) {
