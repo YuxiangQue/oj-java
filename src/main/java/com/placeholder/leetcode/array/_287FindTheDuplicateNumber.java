@@ -5,6 +5,7 @@ import org.junit.Test;
 
 /**
  * https://leetcode.com/problems/find-the-duplicate-number/
+ * http://blog.csdn.net/xudli/article/details/48802345
  *
  * @author yuxiangque
  * @version 2016/3/26

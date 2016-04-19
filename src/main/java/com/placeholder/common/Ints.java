@@ -1,6 +1,5 @@
 package com.placeholder.common;
 
-import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 /**
@@ -8,21 +7,6 @@ import java.util.PriorityQueue;
  * @version 2016/3/14
  */
 public class Ints {
-    public static ArrayList<Integer> asList(int[] nums) {
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            list.add(i, nums[i]);
-        }
-        return list;
-    }
-
-    public static int sum(int[] nums) {
-        int sum = 0;
-        for (int num : nums) {
-            sum += num;
-        }
-        return sum;
-    }
 
     public static void main(String[] args) {
         PriorityQueue<Integer> pq = new PriorityQueue<>();

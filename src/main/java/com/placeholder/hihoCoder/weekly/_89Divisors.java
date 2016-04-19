@@ -1,7 +1,7 @@
 package com.placeholder.hihoCoder.weekly;
 
 
-import com.placeholder.common.Algorithms;
+import com.placeholder.common.NumberTheory;
 
 /**
  * http://hihocoder.com/discuss/question/2857/ Divisors
@@ -33,7 +33,7 @@ public class _89Divisors {
     private void generatePrimes() {
         int i = 2;
         while (primeIndex < 41) {
-            if (Algorithms.isPrime(i)) {
+            if (NumberTheory.isPrime(i)) {
                 primes[primeIndex++] = i;
             }
             ++i;

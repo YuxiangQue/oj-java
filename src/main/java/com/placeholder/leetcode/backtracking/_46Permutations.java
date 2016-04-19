@@ -1,5 +1,6 @@
 package com.placeholder.leetcode.backtracking;
 
+import com.placeholder.common.Common;
 import com.placeholder.common.Ints;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class _46Permutations {
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0)
             return res;
-        dfs(Ints.asList(nums), new ArrayList<>(), res);
+        dfs(Common.asList(nums), new ArrayList<>(), res);
         return res;
     }
 

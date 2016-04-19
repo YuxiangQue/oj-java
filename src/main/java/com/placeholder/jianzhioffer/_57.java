@@ -1,6 +1,6 @@
 package com.placeholder.jianzhioffer;
 
-import com.placeholder.common.ListNode;
+import com.placeholder.builtin.ListNode;
 
 /**
  * @author 阙宇翔

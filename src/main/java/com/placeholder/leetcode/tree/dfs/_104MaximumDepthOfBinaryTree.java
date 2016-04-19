@@ -1,6 +1,6 @@
 package com.placeholder.leetcode.tree.dfs;
 
-import com.placeholder.common.TreeNode;
+import com.placeholder.builtin.TreeNode;
 
 /**
  * https://leetcode.com/problems/maximum-depth-of-binary-tree/

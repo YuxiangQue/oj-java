@@ -1,7 +1,7 @@
 package com.placeholder.leetcode.linkedlist;
 
-import com.placeholder.common.ListNode;
-import com.placeholder.common.TreeNode;
+import com.placeholder.builtin.ListNode;
+import com.placeholder.builtin.TreeNode;
 
 /**
  * @author 阙宇翔

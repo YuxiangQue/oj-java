@@ -1,6 +1,6 @@
 package com.placeholder.leetcode.tree.path;
 
-import com.placeholder.common.TreeNode;
+import com.placeholder.builtin.TreeNode;
 
 /**
  * https://leetcode.com/problems/binary-tree-maximum-path-sum/

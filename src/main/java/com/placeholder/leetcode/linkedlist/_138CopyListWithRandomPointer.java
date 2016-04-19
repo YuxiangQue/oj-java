@@ -1,6 +1,6 @@
 package com.placeholder.leetcode.linkedlist;
 
-import com.placeholder.common.RandomListNode;
+import com.placeholder.builtin.RandomListNode;
 
 /**
  * https://leetcode.com/problems/copy-list-with-random-pointer/

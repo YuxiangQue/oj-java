@@ -1,13 +1,12 @@
 package com.placeholder.leetcode.tree;
 
 
-import com.placeholder.common.TreeNode;
+import com.placeholder.builtin.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.jar.Pack200;
 
 /**
  *

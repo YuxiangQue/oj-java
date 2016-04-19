@@ -1,6 +1,6 @@
 package com.placeholder.leetcode.tree;
 
-import com.placeholder.common.TreeNode;
+import com.placeholder.builtin.TreeNode;
 
 import java.util.Stack;
 

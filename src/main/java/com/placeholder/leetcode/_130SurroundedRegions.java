@@ -5,6 +5,8 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.Stack;
 
+import static com.placeholder.common.Common.stringArrayToCharArray2;
+
 /**
  * https://leetcode.com/problems/surrounded-regions/
  *
@@ -13,13 +15,6 @@ import java.util.Stack;
  */
 public class _130SurroundedRegions {
 
-    private static char[][] stringArrayToCharArray2(String[] stirngArray) {
-        char[][] charArray2 = new char[stirngArray.length][];
-        for (int i = 0; i < stirngArray.length; i++) {
-            charArray2[i] = stirngArray[i].toCharArray();
-        }
-        return charArray2;
-    }
 
     @Test
     public void test() {

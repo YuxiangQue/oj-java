@@ -1,6 +1,6 @@
 package com.placeholder.hihoCoder.weekly;
 
-import com.placeholder.common.Algorithms;
+import com.placeholder.common.NumberTheory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -24,7 +24,7 @@ public class _93Eular {
 
         for (int i = 0; i < n; i++) {
             if (filter[i] == 0) {
-            } else if (Algorithms.isPrime(i)) {
+            } else if (NumberTheory.isPrime(i)) {
                 for (int j = 2; i * j <= n; j++) {
                     filter[i * j] = 0;
                 }

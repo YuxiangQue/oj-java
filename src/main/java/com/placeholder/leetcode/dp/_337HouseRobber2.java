@@ -1,6 +1,6 @@
 package com.placeholder.leetcode.dp;
 
-import com.placeholder.common.TreeNode;
+import com.placeholder.builtin.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
 
