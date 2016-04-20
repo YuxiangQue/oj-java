@@ -16,7 +16,7 @@ public class ListNode {
         next = null;
     }
 
-    public static ListNode buildList(int[] vals) {
+    public static ListNode buildList(int... vals) {
         if (vals == null || vals.length == 0)
             return null;
         ListNode head = new ListNode(vals[0]);

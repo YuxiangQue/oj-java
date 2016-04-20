@@ -14,13 +14,42 @@ import java.util.Arrays;
  */
 public class _3LongestSubstringWithoutRepeatingCharacters {
 
+    public static int lengthOfLongestSubstring2(String s) {
+        char[] string = s.toCharArray();
+        int[] m = new int[128];
+        int counter = 0;
+        int begin = 0;
+        int end = 0;
+        int maxLength = 0;
+
+        while (end < s.length()) {
+            if (m[string[end]] > 0) {
+                ++counter;
+            }
+            ++m[string[end]];
+            ++end;
+
+            while (counter > 0) {
+                if (m[string[begin]] > 1) {
+                    --counter;
+                }
+                --m[string[begin]];
+                ++begin;
+            }
+            if (end - begin > maxLength) {
+                maxLength = end - begin;
+            }
+        }
+        return maxLength;
+    }
+
     @Test
     public void test() {
-        //  Assert.assertEquals(2, lengthOfLongestSubstring("au"));
-        //  Assert.assertEquals(2, lengthOfLongestSubstring("abba"));
-        // Assert.assertEquals(1, lengthOfLongestSubstring("bbbbb"));
-        Assert.assertEquals(3, lengthOfLongestSubstring("abcabcbb"));
-        Assert.assertEquals(8, lengthOfLongestSubstring("qpxrjxkltzyx"));
+        Assert.assertEquals(2, lengthOfLongestSubstring2("au"));
+        Assert.assertEquals(2, lengthOfLongestSubstring2("abba"));
+        Assert.assertEquals(1, lengthOfLongestSubstring2("bbbbb"));
+        Assert.assertEquals(3, lengthOfLongestSubstring2("abcabcbb"));
+        Assert.assertEquals(8, lengthOfLongestSubstring2("qpxrjxkltzyx"));
     }
 
     public int lengthOfLongestSubstring(String s) {

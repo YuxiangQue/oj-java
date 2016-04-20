@@ -24,12 +24,14 @@ public class _154FindMinimumInRotatedSortedArray2 {
     }
 
     public static int findMin2(int[] nums) {
+        if (nums == null || nums.length == 0)
+            return 0;
         int n = nums.length;
         int left = 0;
         int right = n - 1;
-        while (left <= right) {
+        while (left < right) {
             if (nums[left] <= nums[right]) {
-                return nums[left];
+                return findMinSeq(nums, left, right);
             }
             int middle = left + (right - left) / 2;
             // nums[left] > nums[right]
@@ -72,6 +74,7 @@ public class _154FindMinimumInRotatedSortedArray2 {
 
     @Test
     public void test() {
+        Assert.assertEquals(1, findMin2(new int[]{2, 2, 1, 2, 2, 2}));
         Assert.assertEquals(1, findMin2(new int[]{4, 5, 6, 7, 1, 2}));
         Assert.assertEquals(1, findMin2(new int[]{6, 1, 2, 4, 5}));
         Assert.assertEquals(1, findMin2(new int[]{5, 6, 1, 2, 4}));

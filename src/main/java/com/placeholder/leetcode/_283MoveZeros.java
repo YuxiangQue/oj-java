@@ -5,6 +5,8 @@ import org.junit.Test;
 
 /**
  * https://leetcode.com/problems/move-zeroes/
+ * #Two Pointer
+ * #Array
  *
  * @author yuxiangque
  * @version 2016/4/16
