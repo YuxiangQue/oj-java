@@ -26,7 +26,7 @@ public class Bits {
     // 更新
     static int updateBit(int num, int i, int v) {
         num = num & (~(1 << i)); // clear
-        return num | (v << i);   // set
+        return num | (v << i);   // query
     }
 
     // num最高位至第i位（包括）清零
