@@ -64,6 +64,32 @@ public class Trie {
         return true;
     }
 
+    // Returns the number of words that starts with prefix
+    public int countStartsWith(String prefix) {
+        Node node = root;
+        for (int i = 0; i < prefix.length(); ++i) {
+            if (node.children == null)
+                return 0;
+            Node child = node.children.get(prefix.charAt(i));
+            if (child == null)
+                return 0;
+            node = child;
+        }
+        return count(node);
+    }
+
+    private int count(Node node) {
+        if (node == null)
+            return 0;
+        int count = node.count;
+        if (node.children == null)
+            return count;
+        for (Node child : node.children.values()) {
+            count += count(child);
+        }
+        return count;
+    }
+
     private static class Node {
         Map<Character, Node> children; // 各个子节点
         int count = 0;

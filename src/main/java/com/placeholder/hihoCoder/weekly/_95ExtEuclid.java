@@ -10,6 +10,7 @@ import java.util.Scanner;
  */
 public class _95ExtEuclid {
 
+    // http://www.ithao123.cn/content-9931190.html
     // 2 追击 1，假设 1 静止，2用t步追上了1
     // (v2 - v1) * t - m * k = s1 - s2
     // 速度*次数-圈数*周长=距离
