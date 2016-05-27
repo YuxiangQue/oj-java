@@ -1,6 +1,6 @@
 package com.placeholder.jianzhioffer;
 
-import com.placeholder.builtin.ListNode;
+import com.placeholder.predef.ListNode;
 
 import java.util.ArrayList;
 import java.util.Stack;

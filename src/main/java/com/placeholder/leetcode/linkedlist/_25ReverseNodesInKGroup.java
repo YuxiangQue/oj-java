@@ -1,6 +1,6 @@
 package com.placeholder.leetcode.linkedlist;
 
-import com.placeholder.builtin.ListNode;
+import com.placeholder.predef.ListNode;
 
 /**
  * https://leetcode.com/problems/reverse-nodes-in-k-group/

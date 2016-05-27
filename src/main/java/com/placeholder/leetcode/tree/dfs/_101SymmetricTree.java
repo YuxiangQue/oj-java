@@ -1,6 +1,6 @@
 package com.placeholder.leetcode.tree.dfs;
 
-import com.placeholder.builtin.TreeNode;
+import com.placeholder.predef.TreeNode;
 
 /**
  * @author 阙宇翔

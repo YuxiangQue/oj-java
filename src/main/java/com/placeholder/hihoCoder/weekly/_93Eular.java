@@ -22,6 +22,7 @@ public class _93Eular {
         int[] filter = new int[n + 1];
         Arrays.fill(filter, 1);
 
+
         for (int i = 0; i < n; i++) {
             if (filter[i] == 0) {
             } else if (NumberTheory.isPrime(i)) {

@@ -1,6 +1,6 @@
 package com.placeholder.leetcode.tree.levelorder;
 
-import com.placeholder.builtin.TreeNode;
+import com.placeholder.predef.TreeNode;
 
 import java.util.Deque;
 import java.util.LinkedList;

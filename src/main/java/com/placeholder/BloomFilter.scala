@@ -3,6 +3,8 @@ package com.placeholder
 import scala.collection.mutable.ListBuffer
 
 /**
+  * http://www.cnblogs.com/arkia123/archive/2012/10/30/2743850.html
+  *
   * @author yuxiangque
   * @version 2016/4/26
   */

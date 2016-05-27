@@ -1,6 +1,6 @@
 package com.placeholder.leetcode.tree.path;
 
-import com.placeholder.builtin.TreeNode;
+import com.placeholder.predef.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.placeholder.jianzhioffer;
 
-import com.placeholder.builtin.TreeNode;
+import com.placeholder.predef.TreeNode;
 
 import java.util.HashMap;
 import java.util.List;

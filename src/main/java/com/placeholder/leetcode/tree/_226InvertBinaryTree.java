@@ -1,6 +1,6 @@
 package com.placeholder.leetcode.tree;
 
-import com.placeholder.builtin.TreeNode;
+import com.placeholder.predef.TreeNode;
 
 /**
  * https://leetcode.com/problems/invert-binary-tree/
