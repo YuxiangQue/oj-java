@@ -44,7 +44,7 @@ public class LRUCache<K, V> {
         } else {
             entry.key = key;
             entry.value = value;
-            entryList.remove(entry);
+            entryList.remove(entry); // O(n) ???
             entryList.add(0, entry);
             cacheMap.put(key, entry);
         }
