@@ -6,14 +6,14 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * @author yuxiangque
- * @version 2016/9/4
+ * Image Encryption
+ * http://hihocoder.com/discuss/question/3663
  */
-public class _114 {
+public class _114ImageEncryption {
 
 
     public static void main(String[] args) {
-        _114 sln = new _114();
+        _114ImageEncryption sln = new _114ImageEncryption();
 
         Scanner scanner = new Scanner(System.in);
         int nTestCases = scanner.nextInt();
