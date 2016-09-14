@@ -21,7 +21,7 @@ public class _268MissingNumber {
         int left = 0;
         int right = nums.length;
         while (left < right) {
-            int mid = (left + right) / 2;
+            int mid = left + (right - left) / 2;
             if (nums[mid] > mid)
                 right = mid;
             else
