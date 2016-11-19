@@ -12,6 +12,10 @@ import org.junit.Test;
  */
 public class _44WildcardMatching {
 
+
+    // dp[i][j] = dp[i-1][j-1] == ?
+    //          = dp[i][j-1] || dp[i-1][j] *
+
     public static boolean isMatch(String s, String p) {
         char[] str = s.toCharArray();
         char[] pattern = p.toCharArray();
