@@ -1,11 +1,6 @@
 package com.placeholder.common;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * @author yuxiangque
@@ -13,90 +8,97 @@ import java.util.List;
  */
 public class LRUCache<K, V> {
 
-    private final int capacity;
-    private final HashMap<K, KVEntry<K, V>> cacheMap = new HashMap<>();
-    private List<KVEntry<K, V>> entryList = new LinkedList<>();
+    public final int capacity;
+    public final HashMap<K, Node<K, V>> cacheMap = new HashMap<>();
+    public Node<K, V> head, tail;
+    public int size;
+
 
     public LRUCache(int capacity) {
         this.capacity = capacity;
+        head = new Node<K, V>(null, null);
+        tail = new Node<K, V>(null, null);
+
+        head.next = tail;
+        head.prev = tail;
+        tail.next = head;
+        tail.prev = head;
+        size = 0;
+    }
+
+    public int size() {
+        return size;
     }
 
     public V get(K key) {
-        KVEntry<K, V> entry = cacheMap.get(key);
-        if (entry != null) {
-            entryList.remove(entry);
-            entryList.add(0, entry);
-            return entry.value;
+        Node<K, V> node = cacheMap.get(key);
+        if (node != null) {
+            remove(node);
+            insertAfter(head, node);
+            System.out.println("returns " + node.value);
+            return node.value;
         } else {
+            System.out.println("returns -1 (not found)");
             return null;
         }
     }
 
     public void set(K key, V value) {
-        KVEntry<K, V> entry = cacheMap.get(key);
-        if (entry == null) {
-            if (entryList.size() >= capacity) {
-                cacheMap.remove(entryList.remove(entryList.size() - 1).key);
+        Node<K, V> node = cacheMap.get(key);
+        if (node == null) {
+            if (size >= capacity) {
+                Node<K, V> temp = tail.prev;
+                System.out.println("evicts key " + temp.key);
+                cacheMap.remove(temp.key);
+                remove(temp);
+                size -= 1;
             }
-            entry = new KVEntry<>(key, value);
-            entryList.add(0, entry);
-            cacheMap.put(key, entry);
+            node = new Node<>(key, value);
+            insertAfter(head, node);
+            cacheMap.put(key, node);
+            size += 1;
         } else {
-            entry.key = key;
-            entry.value = value;
-            entryList.remove(entry); // O(n) ???
-            entryList.add(0, entry);
-            cacheMap.put(key, entry);
+            node.key = key;
+            node.value = value;
+            remove(node);
+            insertAfter(head, node);
+            cacheMap.put(key, node);
         }
     }
 
-    @Test
-    public void test() {
-        LRUCache<Integer, Integer> cache = new LRUCache<>(2);
-        Assert.assertEquals(0, cache.entryList.size());
-        cache.set(2, 1);
-        Assert.assertEquals(1, cache.entryList.size());
-        Assert.assertEquals(new LRUCache.KVEntry<>(2, 1), cache.entryList.get(0));
-        cache.set(1, 1);
-        Assert.assertEquals(2, cache.entryList.size());
-        Assert.assertEquals(new LRUCache.KVEntry<>(1, 1), cache.entryList.get(0));
-        Assert.assertEquals(new LRUCache.KVEntry<>(2, 1), cache.entryList.get(1));
-        Assert.assertEquals(1, (int) cache.get(2));
-
-        Assert.assertEquals(new LRUCache.KVEntry<>(2, 1), cache.entryList.get(0));
-        Assert.assertEquals(new LRUCache.KVEntry<>(1, 1), cache.entryList.get(1));
-
-        cache.set(4, 1);
-        Assert.assertEquals(new LRUCache.KVEntry<>(4, 1), cache.entryList.get(0));
-        Assert.assertEquals(new LRUCache.KVEntry<>(2, 1), cache.entryList.get(1));
-        Assert.assertEquals(null, cache.get(1));
-
-        Assert.assertEquals(new LRUCache.KVEntry<>(4, 1), cache.entryList.get(0));
-        Assert.assertEquals(new LRUCache.KVEntry<>(2, 1), cache.entryList.get(1));
-        Assert.assertEquals(1, (int) cache.get(2));
-
-        Assert.assertEquals(new LRUCache.KVEntry<>(2, 1), cache.entryList.get(0));
-        Assert.assertEquals(new LRUCache.KVEntry<>(4, 1), cache.entryList.get(1));
+    private void insertAfter(Node<K, V> node, Node<K, V> newNode) {
+        newNode.prev = node;
+        newNode.next = node.next;
+        node.next.prev = newNode;
+        node.next = newNode;
     }
 
-    private static class KVEntry<K, V> {
+    private void remove(Node<K, V> node) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+    }
+
+    public static class Node<K, V> {
         K key;
         V value;
 
-        public KVEntry(K key, V value) {
+        Node<K, V> next;
+        Node<K, V> prev;
+
+        public Node(K key, V value) {
             this.key = key;
             this.value = value;
         }
 
         @Override
-        public boolean equals(Object object) {
-            if (this == object) return true;
-            if (object == null || getClass() != object.getClass()) return false;
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
 
-            KVEntry<?, ?> kvEntry = (KVEntry<?, ?>) object;
+            Node<?, ?> node = (Node<?, ?>) o;
 
-            if (key != null ? !key.equals(kvEntry.key) : kvEntry.key != null) return false;
-            return value != null ? value.equals(kvEntry.value) : kvEntry.value == null;
+            if (key != null ? !key.equals(node.key) : node.key != null) return false;
+            return value != null ? value.equals(node.value) : node.value == null;
         }
 
         @Override
@@ -104,14 +106,6 @@ public class LRUCache<K, V> {
             int result = key != null ? key.hashCode() : 0;
             result = 31 * result + (value != null ? value.hashCode() : 0);
             return result;
-        }
-
-        @Override
-        public String toString() {
-            return "KVEntry{" +
-                    "key=" + key +
-                    ", value=" + value +
-                    '}';
         }
     }
 }
