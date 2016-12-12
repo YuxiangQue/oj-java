@@ -65,18 +65,12 @@ public class LFUCache<K, V> {
     }
 
     private void add(K key) {
-        if (head.next == tail) {
-            head.next = head.next.prev = new Node<K>(head, head.next, 1, key);
-            keyToNode.put(key, head.next);
+        if (head.next != tail && head.next.count == 1) {
+            head.next.keys.add(key);
         } else {
-            Node<K> first = head.next;
-            if (first.count == 1) {
-                first.keys.add(key);
-            } else {
-                head.next = head.next.prev = new Node<K>(head, head.next, 1, key);
-                keyToNode.put(key, head.next);
-            }
+            head.next = head.next.prev = new Node<K>(head, head.next, 1, key);
         }
+        keyToNode.put(key, head.next);
     }
 
     private void remove() {
