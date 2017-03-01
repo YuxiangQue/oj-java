@@ -9,34 +9,33 @@ import org.junit.Test;
  */
 public class _122BestTimeToBuyAndSellStock2 {
 
-    public static int maxProfit(int[] prices) {
-        if (prices == null || prices.length <= 1)
-            return 0;
-        int left = 0;
+    /**
+     * _122BestTimeToBuyAndSellStockII
+     *
+     * @param prices
+     * @return
+     */
+    public static int maxProfit_InfTransaction(int[] prices) {
+        if (prices.length < 2) return 0;
         int maxProfit = 0;
-        while (left < prices.length) {
-            int right = left;
-            while (right + 1 < prices.length && prices[right + 1] >= prices[right]) {
-                if (prices[right + 1] < prices[right]) {
-                    break;
-                }
-                ++right;
+        for (int i = 1; i < prices.length; i++) {
+            int profit = prices[i] - prices[i - 1];
+            if (profit > 0) {
+                maxProfit += profit;
             }
-            maxProfit += prices[right] - prices[left];
-            left = right + 1;
         }
         return maxProfit;
     }
 
     @Test
     public void test() {
-        Assert.assertEquals(maxProfit(new int[]{}), 0);
-        Assert.assertEquals(maxProfit(new int[]{1}), 0);
-        Assert.assertEquals(maxProfit(new int[]{1, 1}), 0);
-        Assert.assertEquals(maxProfit(new int[]{1, 2}), 1);
-        Assert.assertEquals(maxProfit(new int[]{2, 1}), 0);
-        Assert.assertEquals(maxProfit(new int[]{1, 2, 3}), 2);
-        Assert.assertEquals(maxProfit(new int[]{3, 2, 3}), 1);
-        Assert.assertEquals(maxProfit(new int[]{5, 1, 2, 3, 4, 0}), 3);
+        Assert.assertEquals(maxProfit_InfTransaction(new int[]{}), 0);
+        Assert.assertEquals(maxProfit_InfTransaction(new int[]{1}), 0);
+        Assert.assertEquals(maxProfit_InfTransaction(new int[]{1, 1}), 0);
+        Assert.assertEquals(maxProfit_InfTransaction(new int[]{1, 2}), 1);
+        Assert.assertEquals(maxProfit_InfTransaction(new int[]{2, 1}), 0);
+        Assert.assertEquals(maxProfit_InfTransaction(new int[]{1, 2, 3}), 2);
+        Assert.assertEquals(maxProfit_InfTransaction(new int[]{3, 2, 3}), 1);
+        Assert.assertEquals(maxProfit_InfTransaction(new int[]{5, 1, 2, 3, 4, 0}), 3);
     }
 }

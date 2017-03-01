@@ -1,23 +1,29 @@
 package com.placeholder.leetcode.dp;
 
 /**
- * http://blog.csdn.net/linhuanmars/article/details/23162793
+ * http://liangjiabin.com/blog/2015/04/leetcode-best-time-to-buy-and-sell-stock.html
  *
  * @author yuxiangque
  * @version 2016/3/24
  */
 public class _121BestTimeToBuyAndSellStock {
 
-    //
-    public int maxProfit(int[] prices) {
+    /**
+     * _121BestTimeToBuyAndSellStock
+     *
+     * @param prices
+     * @return
+     */
+    public int maxProfit_OneTransaction(int[] prices) {
         if (prices == null || prices.length == 0)
             return 0;
-        int runningMax = 0;
-        int max = 0;
-        for (int i = 0; i < prices.length - 1; i++) {
-            runningMax = Math.max(runningMax + prices[i + 1] - prices[i], 0);
-            max = Math.max(runningMax, max);
+        int minPrice = 0;
+        int maxProfit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            minPrice = Math.min(minPrice, prices[i]);
+            maxProfit = Math.max(prices[i] - minPrice, maxProfit);
         }
-        return max;
+        return maxProfit;
     }
+
 }
