@@ -1,7 +1,7 @@
 package com.placeholder.geeksforgeeks;
 
-public class RangeMinimumQueryUpdate {
-    static Node build(int[] nums, int lower, int upper) {
+public class Rmq {
+    public static Node build(int[] nums, int lower, int upper) {
         if (lower == upper) {
             return new Node(nums[lower]);
         }
@@ -13,7 +13,7 @@ public class RangeMinimumQueryUpdate {
         return node;
     }
 
-    static int query(Node root, int lower, int upper, int l, int u) {
+    public static int query(Node root, int lower, int upper, int l, int u) {
         if (l > upper || u < lower || lower > upper) {
             return 0;
         }
@@ -26,24 +26,18 @@ public class RangeMinimumQueryUpdate {
         return Math.max(left, right);
     }
 
-    static Node update(Node prev, int lower, int upper, int index, int value) {
+    public static void update(Node root, int lower, int upper, int index, int value) {
         if (index > upper || index < lower || lower > upper) {
-            return prev;
+            return;
         }
         if (lower == upper) {
-            return new Node(value);
+            root.value = value;
+            return;
         }
         int mid = lower + (upper - lower) / 2;
-        Node node = new Node(0);
-        if (index <= mid) {
-            node.right = prev.right;
-            node.left = update(prev.left, lower, mid, index, value);
-        } else {
-            node.left = prev.left;
-            node.right = update(prev.right, mid + 1, upper, index, value);
-        }
-        node.value = Math.max(node.left.value, node.right.value);
-        return node;
+        update(root.right, mid + 1, upper, index, value);
+        update(root.left, lower, mid, index, value);
+        root.value = Math.max(root.left.value, root.right.value);
     }
 
     public static void main(String[] args) {
@@ -53,7 +47,7 @@ public class RangeMinimumQueryUpdate {
         System.out.println(query(root, 0, n - 1, 0, n - 1));
         System.out.println(query(root, 0, n - 1, 0, 4));
         System.out.println(query(root, 0, n - 1, 5, 6));
-        root = update(root, 0, n - 1, 0, 24);
+        update(root, 0, n - 1, 0, 27);
         System.out.println(query(root, 0, n - 1, 0, n - 1));
     }
 
